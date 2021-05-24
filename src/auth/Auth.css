@@ -1,0 +1,23 @@
+.Auth {
+  width: 400px;
+  margin: auto;
+  border: 1px black solid;
+  border-radius: 5px;
+}
+
+.Auth label span {
+  display: block;
+  font-size: .8rem;
+}
+
+.Auth p {
+  margin: 10px 0;
+}
+
+.Auth button.switch {
+  border: 0;
+  background: unset;
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
