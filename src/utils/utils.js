@@ -11,8 +11,6 @@ export function verifySong(category) {
   }
   return songs;
 }
-<<<<<<< HEAD
-=======
 
 export function getSongs(numArr, searchArr) {
   const songSearches = [];
@@ -23,4 +21,3 @@ export function getSongs(numArr, searchArr) {
 
   return songSearches;
 }
->>>>>>> c27e0077617bf0de62aba40f42e6e9be15226b2b
