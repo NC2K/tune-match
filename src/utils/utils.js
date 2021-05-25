@@ -11,3 +11,13 @@ export function verifySong(category) {
   }
   return songs;
 }
+
+export function getSongs(numArr, searchArr) {
+  const songSearches = [];
+
+  for (let i = 0; i < numArr.length; i++) {
+    songSearches.push(searchArr[numArr[i]]);
+  }
+
+  return songSearches;
+}
