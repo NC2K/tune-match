@@ -1,18 +1,18 @@
 import {
-  songPicker,
-  verifySong,
-  getSongs
+  randomNum,
+  indexSelector,
+  makeQueryList
 } from '../utils/utils.js';
 
 describe('song selection functions', () => {
 
   const input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-  const number1 = songPicker(input);
-  const number2 = songPicker(input);
-  const number3 = songPicker(input);
-  const number4 = songPicker(input);
-  const number5 = songPicker(input);
+  const number1 = randomNum(input);
+  const number2 = randomNum(input);
+  const number3 = randomNum(input);
+  const number4 = randomNum(input);
+  const number5 = randomNum(input);
 
   test('Generate a random number, limited by array length', () => {
 
@@ -30,7 +30,7 @@ describe('song selection functions', () => {
   test('Makes an array of 10 unique numbers', () => {
     let output = true;
 
-    const songArray = verifySong(input);
+    const songArray = indexSelector(input);
 
     console.log(songArray);
 
@@ -63,9 +63,7 @@ describe('song selection functions', () => {
       'Hound+Dog+Elvis+Presley',
     ];
 
-    const numArr = verifySong(songs);
-
-    const songList = getSongs(numArr, songs);
+    const songList = makeQueryList(songs);
 
     console.log(songList);
 
