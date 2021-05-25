@@ -10,7 +10,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
-import InitPage from '../game/InitPage';
+import Categories from '../game/Categories';
 
 class App extends Component {
   state = {
@@ -49,9 +49,9 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/init" exact={true}
+              <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <InitPage {...routerProps} />)}
+                  <Categories {...routerProps} />)}
               />
 
               <Route path="/resources/:id"
