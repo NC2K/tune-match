@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { categories } from '../data/categories.js';
-import './InitPage.css';
+import { categories } from '../data/data.js';
+import './Categories.css';
 
 export default class InitPage extends Component {
   state = {
@@ -41,7 +41,7 @@ export default class InitPage extends Component {
             {categories.map(category => (
               <li>
                 <label>
-                  {category}
+                  {category.category}
                   <input type='radio' name='category' />
                 </label>
               </li>

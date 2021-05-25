@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { logIn, signUp } from '../utils/utils.js';
+import { logIn, signUp } from '../utils/server-utils.js';
 import './Auth.css';
 
 export default class Auth extends Component {
@@ -33,7 +33,7 @@ export default class Auth extends Component {
     try {
       const user = isSignUp ? (await signUp(this.state)) : (await logIn(this.state));
       onUser(user);
-      history.push('/init');
+      history.push('/categories');
     }
     catch (err) {
       this.setState({ error: err.error });
