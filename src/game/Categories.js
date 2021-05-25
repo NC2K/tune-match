@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { categories } from '../data/categories.js';
-import './InitPage.css';
+import './Categories.css';
 
 export default class InitPage extends Component {
   state = {
