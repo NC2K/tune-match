@@ -1,4 +1,5 @@
-export let categories = [
+
+export const categories = [
   { category: '50\'s',
     songs: [
       'Rudolph,+The+Red-nosed+Reindeer+Gene+Autry',
