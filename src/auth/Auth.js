@@ -6,6 +6,7 @@ export default class Auth extends Component {
   state = {
     name: '',
     email: '',
+    avatar: '',
     password: '',
     isSignUp: true,
     error: ''
@@ -32,7 +33,7 @@ export default class Auth extends Component {
     try {
       const user = isSignUp ? (await signUp(this.state)) : (await logIn(this.state));
       onUser(user);
-      // history.push('/') (push them to the game!)
+      history.push('/init');
     }
     catch (err) {
       this.setState({ error: err.error });
@@ -40,7 +41,7 @@ export default class Auth extends Component {
   }
 
   render() {
-    const { name, email, password, isSignUp, error } = this.state;
+    const { name, email, avatar, password, isSignUp, error } = this.state;
 
     return (
       <form className="Auth" onSubmit={this.handleSubmit}>
@@ -57,6 +58,13 @@ export default class Auth extends Component {
             <input name='email' value={email} required onChange={this.handleChange} />
           </label>
         </p>
+
+        {isSignUp && <p>
+          <label> {/*Set avatar up like radio button or drop down menu */}
+            <span>avatar</span>
+            <input name='avatar' value={avatar} required onChange={this.handleChange} />
+          </label>
+        </p>}
 
         <p>
           <label>

@@ -10,6 +10,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
+import InitPage from '../game/InitPage';
 
 class App extends Component {
   state = {
@@ -46,6 +47,11 @@ class App extends Component {
                   <Auth {...routerProps}
                     onUser={this.handleUser} />
                 )}
+              />
+
+              <Route path="/init" exact={true}
+                render={routerProps => (
+                  <InitPage {...routerProps} />)}
               />
 
               <Route path="/resources/:id"
