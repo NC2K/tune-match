@@ -1,6 +1,7 @@
 import {
   songPicker,
-  verifySong
+  verifySong,
+  getSongs
 } from '../utils/utils.js';
 
 describe('song selection functions', () => {
@@ -39,6 +40,39 @@ describe('song selection functions', () => {
       if (dupCheck[i + 1] === dupCheck[i]) {
         return output = false;
       }
+    }
+
+    expect(output).toEqual(true);
+  });
+
+  test('Makes a list of 10 songs queries', () => {
+    const songs = [
+      'Rudolph,+The+Red-nosed+Reindeer+Gene+Autry',
+      'I+Can+Dream,+Can\'t+I+The+Andrew+Sisters',
+      'Music!+Music!+Music!+Teresa+Brewer',
+      'Mona+Lisa+Nat+King+Cole',
+      'Harbor+Lights+Sammy+Kaye',
+      'Mr.+Sandman+The+Chordettes',
+      'Heartbreak+Hotel+Elvis+Presley',
+      'Tequila+The+Champs',
+      'Witch+Doctor+David+Seville',
+      'The+Purple+People+Eater+Sheb+Wooley',
+      'The+Ballad+of+Davy+Crockett+Bill+Hayes',
+      'Cherry+Pink+And+Apple+Blossom+White+Perez+Prado',
+      'Libson+Antigua+Nelson+Riddle',
+      'Hound+Dog+Elvis+Presley',
+    ];
+
+    const numArr = verifySong(songs);
+
+    const songList = getSongs(numArr, songs);
+
+    console.log(songList);
+
+    let output = false;
+
+    if (songList.length === 10) {
+      output = true;
     }
 
     expect(output).toEqual(true);

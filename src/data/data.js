@@ -1,4 +1,4 @@
-export let categories = [
+export const categories = [
   {
     category: '50\'s',
     songs: [
