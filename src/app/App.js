@@ -1,8 +1,11 @@
 import { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Home from '../home/Home';
 import Auth from '../auth/Auth';
+import Footer from './Footer';
+import Header from './Header';
+import Home from '../home/Home';
+import InitPage from '../game/InitPage';
+import SongPage from '../game/SongPage';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -10,7 +13,6 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
-import InitPage from '../game/InitPage';
 
 class App extends Component {
   state = {
@@ -52,6 +54,11 @@ class App extends Component {
               <Route path="/init" exact={true}
                 render={routerProps => (
                   <InitPage {...routerProps} />)}
+              />
+
+              <Route path="/songpage" exact={true}
+                render={routerProps => (
+                  <SongPage {...routerProps} />)}
               />
 
               <Route path="/resources/:id"
