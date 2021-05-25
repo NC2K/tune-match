@@ -4,15 +4,56 @@ import { categories } from '../data/categories.js';
 import './InitPage.css';
 
 export default class InitPage extends Component {
+  state = {
+    catCount: 0,
+    endButton: false
+  }
+
+  handleSwitch = () => {
+    const { catCount } = this.state;
+    if (catCount > 0)
+      this.setState({ endButton: !this.state.endButton });
+  }
+
+  handleSubmit = async e => {
+    const { catCount } = this.state;
+    const { history, error } = this.props;
+
+    e.preventDefault();
+
+    try {
+
+      history.push('/game');
+    }
+    catch (err) {
+      this.setState({ error: err.error });
+    }
+  }
+
   render() {
+    const { endButton } = this.state;
+
     return (
       <div>
         Welcome to the game setup page.
-        <ul className="CategoryList">
-          {categories.map(category => (
-            <li>{category}</li>
-          ))}
-        </ul>
+        <form className='selection-form'>
+          <ul className='CategoryList'>
+            {categories.map(category => (
+              <li>
+                <label>
+                  {category}
+                  <input type='radio' name='category' />
+                </label>
+              </li>
+            ))}
+          </ul>
+          <p>
+            <button>Start</button>
+          </p>
+          {endButton && <p>
+            <button>End Game</button>
+          </p>}
+        </form>
       </div>
     );
   }
