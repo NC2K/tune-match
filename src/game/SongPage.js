@@ -32,7 +32,7 @@ export default class SongPage extends Component {
           <figcaption>What is that song?</figcaption>
           <audio
             controls
-            src={song}>
+            src={playlist[song]}>
             Your browser does not support the
             <code>audio</code> element.
           </audio>
