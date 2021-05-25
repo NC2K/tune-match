@@ -30,7 +30,5 @@ export async function getPlaylist(songArr) {
       .query({ search: song });
     return response.body;
   }));
-
-  console.log('Inside the function', playlist.flat());
   return playlist.flat();
 }
