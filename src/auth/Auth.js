@@ -33,7 +33,7 @@ export default class Auth extends Component {
     try {
       const user = isSignUp ? (await signUp(this.state)) : (await logIn(this.state));
       onUser(user);
-      history.push('/init');
+      history.push('/categories');
     }
     catch (err) {
       this.setState({ error: err.error });
