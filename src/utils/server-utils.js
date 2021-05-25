@@ -23,8 +23,6 @@ export async function signUp(user) {
 }
 
 export async function getPlaylist(songArr) {
-  console.log(songArr);
-
   const playlist = await Promise.all(songArr.map(async song => {
     const response = await request
       .get('/api/categories/:search')
@@ -33,5 +31,6 @@ export async function getPlaylist(songArr) {
     return response.body;
   }));
 
-  return playlist;
+  console.log('Inside the function', playlist.flat());
+  return playlist.flat();
 }
