@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { logIn, signUp } from '../utils/utils.js';
+import { logIn, signUp } from '../utils/server-utils.js';
 import './Auth.css';
 
 export default class Auth extends Component {
