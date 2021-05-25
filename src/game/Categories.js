@@ -42,7 +42,7 @@ export default class InitPage extends Component {
               <li>
                 <label>
                   {category.category}
-                  <input type='radio' name='category' />
+                  <input type='radio' name='category' value={category.category} />
                 </label>
               </li>
             ))}
@@ -51,7 +51,7 @@ export default class InitPage extends Component {
             <button>Start</button>
           </p>
           {endButton && <p>
-            <button>End Game</button>
+            <button type='button'>End Game</button>
           </p>}
         </form>
       </div>

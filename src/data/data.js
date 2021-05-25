@@ -1,5 +1,8 @@
-export let categories = [
-  { category: '50\'s',
+
+export const categories = [
+  {
+    category: '50\'s',
+
     songs: [
       'Rudolph,+The+Red-nosed+Reindeer+Gene+Autry',
       'I+Can+Dream,+Can\'t+I+The+Andrew+Sisters',
