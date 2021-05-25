@@ -1,17 +1,18 @@
 import { Component } from 'react';
-import Auth from '../auth/Auth';
-import Footer from './Footer';
-import Header from './Header';
-import Home from '../home/Home';
-import InitPage from '../game/InitPage';
-import SongPage from '../game/SongPage';
-
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect
 } from 'react-router-dom';
+
+import Auth from '../auth/Auth';
+import Categories from '../game/Categories';
+import Footer from './Footer';
+import Header from './Header';
+import Home from '../home/Home';
+import SongPage from '../game/SongPage';
+
 import './App.css';
 
 class App extends Component {
@@ -51,9 +52,9 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/init" exact={true}
+              <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <InitPage {...routerProps} />)}
+                  <Categories {...routerProps} />)}
               />
 
               <Route path="/songpage" exact={true}
