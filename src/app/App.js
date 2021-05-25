@@ -1,16 +1,19 @@
 import { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Home from '../home/Home';
-import Auth from '../auth/Auth';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect
 } from 'react-router-dom';
-import './App.css';
+
+import Auth from '../auth/Auth';
 import Categories from '../game/Categories';
+import Footer from './Footer';
+import Header from './Header';
+import Home from '../home/Home';
+import SongPage from '../game/SongPage';
+
+import './App.css';
 
 class App extends Component {
   state = {
@@ -52,6 +55,11 @@ class App extends Component {
               <Route path="/categories" exact={true}
                 render={routerProps => (
                   <Categories {...routerProps} />)}
+              />
+
+              <Route path="/songpage" exact={true}
+                render={routerProps => (
+                  <SongPage {...routerProps} />)}
               />
 
               <Route path="/resources/:id"
