@@ -11,7 +11,7 @@ export default class SongPage extends Component {
       'The+Chipmunk+Song+The+Chipmunks+with+David+Seville',
       'Venus+Frankie+Avalon'
     ],
-    fetchedSongArray: [],
+    fetchedSongArray: {},
     round: 0,
     counter: 0
   }
@@ -23,8 +23,8 @@ export default class SongPage extends Component {
 
   handleClick = async () => {
     this.state.counter++;
-    const newSong = await getSong(this.state.songs, this.state.counter);
-    this.setState({ fetchedSongArray: newSong });
+    const playlist = await getSong(this.state.songs, this.state.counter);
+    this.setState({ fetchedSongArray: playlist });
   };  
 
 
@@ -41,7 +41,7 @@ export default class SongPage extends Component {
            
           <audio
             controls
-            src={fetchedSongArray[counter]}>
+            src={fetchedSongArray[0]?.song}>
               Your browser does not support the
             <code>audio</code> element.
           </audio>
