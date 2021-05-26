@@ -12,6 +12,7 @@ import Categories from '../game/Categories';
 import Footer from './Footer';
 import Header from './Header';
 import Home from '../home/Home';
+import LeaderboardPage from '../leaderboard/LeaderboardPage';
 import ResultsPage from '../results/ResultsPage';
 import SongPage from '../game/SongPage';
 
@@ -70,6 +71,11 @@ class App extends Component {
               <Route path="/resultspage" exact={true}
                 render={routerProps => (
                   <ResultsPage {...routerProps} />)}
+              />
+
+              <Route path="/leaderboard" exact={true}
+                render={routerProps => (
+                  <LeaderboardPage {...routerProps} />)}
               />
 
               <Route path="/aboutus" exact={true}
