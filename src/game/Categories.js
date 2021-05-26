@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-
 import { categories } from '../data/data.js';
+import {makeQueryList} from '../utils/utils';
 import './Categories.css';
 
 export default class InitPage extends Component {
   state = {
     catCount: 0,
-    endButton: false
+    endButton: false,
+    cat: '',
+    songs: []
   }
 
   handleSwitch = () => {
@@ -15,15 +17,29 @@ export default class InitPage extends Component {
       this.setState({ endButton: !this.state.endButton });
   }
 
-  handleSubmit = async e => {
-    const { catCount } = this.state;
-    const { history, error } = this.props;
-
-    e.preventDefault();
-
+  onValueChange = e => {
+    this.setState({ cat: e.target.value });
+  }
+  
+  handleSubmit =  e => {
     try {
+      e.preventDefault();
+      const { cat, songs } = this.state;
+      const { history, error, onSubmit } = this.props;
+      this.state.catCount++;
+      
+      const catQueryList = makeQueryList(categories[cat].songs);
 
-      history.push('/game');
+      const stringyCat = JSON.stringify(catQueryList);
+      localStorage.setItem('SONGS', stringyCat)
+      console.log(catQueryList);
+      // songs.push(catQueryList);
+
+      console.log('QUERY LIST:', songs);
+      // onSubmit(songs);
+      
+      history.push('/songpage');
+
     }
     catch (err) {
       this.setState({ error: err.error });
@@ -31,18 +47,18 @@ export default class InitPage extends Component {
   }
 
   render() {
-    const { endButton } = this.state;
+    const { endButton, cat } = this.state;
 
     return (
       <div>
-        Welcome to the game setup page.
-        <form className='selection-form'>
+        Choose A Category!
+        <form className='selection-form' onSubmit={this.handleSubmit}>
           <ul className='CategoryList'>
-            {categories.map(category => (
+            {categories.map((category, i) => (
               <li>
                 <label>
                   {category.category}
-                  <input type='radio' name='category' value={category.category} />
+                  <input type='radio' name='category' value={i} onChange= {this.onValueChange}/>
                 </label>
               </li>
             ))}

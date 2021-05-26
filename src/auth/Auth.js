@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { logIn, signUp } from '../utils/server-utils.js';
 import './Auth.css';
 
