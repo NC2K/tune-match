@@ -31,12 +31,12 @@ class App extends Component {
   }
 
   onSubmit = songs => {
-    this.setState({songs: songs});
+    this.setState({ songs: songs });
   }
 
   render() {
     // const { token } = this.state; (use with favorites later)
-    const {songs} = this.state;
+    const { songs } = this.state;
     console.log(this.state.songs);
     return (
       <div className="App">
@@ -60,12 +60,12 @@ class App extends Component {
 
               <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <Categories {...routerProps} onSubmit={this.onSubmit}/>)}
+                  <Categories {...routerProps} onSubmit={this.onSubmit} />)}
               />
 
               <Route path="/songpage" exact={true}
                 render={routerProps => (
-                  <SongPage {...routerProps} songsProp={songs}/>)}
+                  <SongPage {...routerProps} songsProp={songs} />)}
               />
 
               <Route path="/resources/:id"
