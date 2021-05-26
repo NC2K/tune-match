@@ -69,7 +69,7 @@ describe('song selection functions', () => {
 
     let output = false;
 
-    if (songList.length === 10) {
+    if (songList.length === 11) {
       output = true;
     }
 
