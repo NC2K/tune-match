@@ -41,10 +41,9 @@ export default class SongPage extends Component {
     e.preventDefault();
     const { userInput, fetchedSong, score } = this.state; 
     if (userInput === fetchedSong[0].title) {
-      console.log('correct, before score');
-      let num = score + 100;
-      this.setState({ score: num });
-      console.log('Correct', score);
+      
+      this.setState({ score: score + 100 });
+      console.log('Score', score);
       this.handleClick();
     } else {
       console.log('WROOONNNGG');
