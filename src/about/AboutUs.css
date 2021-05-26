@@ -1,0 +1,20 @@
+.AboutUs {
+
+}
+
+.avatar {
+  color: blue;
+}
+
+.bios {
+  display: grid;
+  grid-template-columns: .15fr 1fr;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+}

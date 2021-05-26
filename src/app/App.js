@@ -6,6 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
+import AboutUs from '../about/AboutUs';
 import Auth from '../auth/Auth';
 import Categories from '../game/Categories';
 import Footer from './Footer';
@@ -69,6 +70,11 @@ class App extends Component {
               <Route path="/resultspage" exact={true}
                 render={routerProps => (
                   <ResultsPage {...routerProps} />)}
+              />
+
+              <Route path="/aboutus" exact={true}
+                render={routerProps => (
+                  <AboutUs {...routerProps} />)}
               />
 
               <Route path="/resources/:id"
