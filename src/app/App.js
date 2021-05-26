@@ -19,7 +19,8 @@ class App extends Component {
   state = {
     token: window.localStorage.getItem('TOKEN'),
     userId: window.localStorage.getItem('USER_ID'),
-    userName: window.localStorage.getItem('USER_NAME')
+    userName: window.localStorage.getItem('USER_NAME'),
+    songs: []
   }
 
   handleUser = user => {
@@ -29,9 +30,14 @@ class App extends Component {
     this.setState({ token: user.token });
   }
 
+  onSubmit = songs => {
+    this.setState({songs: songs});
+  }
+
   render() {
     // const { token } = this.state; (use with favorites later)
-
+    const {songs} = this.state;
+    console.log(this.state.songs);
     return (
       <div className="App">
         <Router>
@@ -54,12 +60,12 @@ class App extends Component {
 
               <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <Categories {...routerProps} />)}
+                  <Categories {...routerProps} onSubmit={this.onSubmit}/>)}
               />
 
               <Route path="/songpage" exact={true}
                 render={routerProps => (
-                  <SongPage {...routerProps} />)}
+                  <SongPage {...routerProps} songsProp={songs}/>)}
               />
 
               <Route path="/resources/:id"
