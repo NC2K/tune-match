@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { categories } from '../data/data.js';
-import {makeQueryList} from '../utils/utils';
+import { makeQueryList } from '../utils/utils';
 import './Categories.css';
 
 export default class InitPage extends Component {
@@ -20,24 +20,23 @@ export default class InitPage extends Component {
   onValueChange = e => {
     this.setState({ cat: e.target.value });
   }
-  
-  handleSubmit =  e => {
+
+  handleSubmit = e => {
     try {
       e.preventDefault();
       const { cat, songs } = this.state;
-      const { history, error, onSubmit } = this.props;
+      const { history, error } = this.props;
       this.state.catCount++;
-      
+
       const catQueryList = makeQueryList(categories[cat].songs);
 
       const stringyCat = JSON.stringify(catQueryList);
-      localStorage.setItem('SONGS', stringyCat)
-      console.log(catQueryList);
-      // songs.push(catQueryList);
+      localStorage.setItem('SONGS', stringyCat);
+      
 
       console.log('QUERY LIST:', songs);
-      // onSubmit(songs);
-      
+    
+
       history.push('/songpage');
 
     }
@@ -58,7 +57,7 @@ export default class InitPage extends Component {
               <li>
                 <label>
                   {category.category}
-                  <input type='radio' name='category' value={i} onChange= {this.onValueChange}/>
+                  <input type='radio' name='category' value={i} onChange={this.onValueChange} />
                 </label>
               </li>
             ))}

@@ -34,7 +34,7 @@ export async function signUp(user) {
 // }
 
 export async function getSong(songArr, counter) {
-  console.log('SONGARR:', songArr[counter], counter)
+  console.log('SONGARR:', songArr[counter], counter);
   const playlist = await request
     .get('/api/categories/:search')
     .set('Authorization', window.localStorage.getItem('TOKEN'))
@@ -42,4 +42,3 @@ export async function getSong(songArr, counter) {
 
   return playlist.body;
 }
-  

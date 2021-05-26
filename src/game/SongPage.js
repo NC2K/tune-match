@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Timer from '../timer/Timer';
 
 import { getSong } from '../utils/server-utils';
 import './SongPage.css';
@@ -13,10 +14,10 @@ export default class SongPage extends Component {
   }
 
   async componentDidMount() {
-    const { songsProp } = this.props;
+
 
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
-    this.setState({ songs: parsedSongs })
+    this.setState({ songs: parsedSongs });
     // console.log(this.state.songs);   
     // setTimeout(async() => {  
     const currentSong = await getSong(this.state.songs, this.state.counter);
@@ -34,9 +35,10 @@ export default class SongPage extends Component {
   render() {
 
     const { fetchedSong, counter, songs } = this.state;
-    console.log(songs)
+    console.log(songs);
     return (
       <div>
+
         {/* This plays our song */}
         <figure>
           <figcaption>What is that song?</figcaption>
@@ -46,8 +48,8 @@ export default class SongPage extends Component {
               controls
               src={fetchedSong[0].song}>
               Your browser does not support the
-            <code>audio</code> element.
-          </audio>
+              <code>audio</code> element.
+            </audio>
 
           }
 
@@ -55,6 +57,7 @@ export default class SongPage extends Component {
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
         <button onClick={this.handleClick}>GO AWAY</button>
+        <Timer></Timer>
       </div >
     );
   }
