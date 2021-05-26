@@ -17,18 +17,23 @@ export default class SongPage extends Component {
 
   async componentDidMount() {
 
-
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
     this.setState({ songs: parsedSongs });
-    // console.log(this.state.songs);   
+    // console.log(this.state.songs);
     // setTimeout(async() => {  
     const currentSong = await getSong(this.state.songs, this.state.counter);
-    this.setState({ fetchedSong: currentSong });
+    this.setState({ fetchedSong: currentSong }, () => this.handleClick());
     // }, 2000);
+    console.log(this.state.songs);
   }
 
   handleClick = async () => {
-    this.state.counter++;
+
+    if (this.state.songs === 'undefined') {
+      this.state.counter = 0;
+    } else {
+      this.state.counter++;
+    }
     const nextSong = await getSong(this.state.songs, this.state.counter);
     this.setState({ fetchedSong: nextSong });
   };
@@ -39,24 +44,22 @@ export default class SongPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { userInput, fetchedSong, score } = this.state; 
+    const { userInput, fetchedSong, score } = this.state;
     if (userInput === fetchedSong[0].title) {
-      
+
       this.setState({ score: score + 100 });
       console.log('Score', score);
       this.handleClick();
     } else {
       console.log('WROOONNNGG');
     }
-    this.setState({ });
+    this.setState({});
   }
 
   render() {
 
-    const { fetchedSong, counter, songs, userInput } = this.state;
-    // console.log('songs', songs);
-    // console.log('user', userInput);
-    // console.log('counter', counter);
+    const { fetchedSong } = this.state;
+
     return (
       <div>
 
@@ -78,7 +81,7 @@ export default class SongPage extends Component {
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange}/>
+          <input onChange={this.handleChange} />
           <button>Guess</button>
         </form>
         <button onClick={this.handleClick}>Skip It</button>
