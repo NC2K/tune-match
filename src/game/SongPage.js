@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Timer from '../timer/Timer';
 
 import { getSong } from '../utils/server-utils';
 import './SongPage.css';
@@ -6,50 +7,57 @@ import './SongPage.css';
 
 export default class SongPage extends Component {
   state = {
-    songs: [
-      'Rudolph,+The+Red-nosed+Reindeer+Gene+Autry',
-      'The+Chipmunk+Song+The+Chipmunks+with+David+Seville',
-      'Venus+Frankie+Avalon'
-    ],
-    fetchedSongArray: {},
+    songs: [],
+    fetchedSong: null,
     round: 0,
     counter: 0
   }
 
   async componentDidMount() {
-    const playlist = await getSong(this.state.songs, this.state.counter);
-    this.setState({ fetchedSongArray: playlist });
+
+
+    const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
+    this.setState({ songs: parsedSongs });
+    // console.log(this.state.songs);   
+    // setTimeout(async() => {  
+    const currentSong = await getSong(this.state.songs, this.state.counter);
+    this.setState({ fetchedSong: currentSong });
+    // }, 2000);
   }
 
   handleClick = async () => {
     this.state.counter++;
-    const playlist = await getSong(this.state.songs, this.state.counter);
-    this.setState({ fetchedSongArray: playlist });
-  };  
+    const nextSong = await getSong(this.state.songs, this.state.counter);
+    this.setState({ fetchedSong: nextSong });
+  };
 
 
   render() {
-    
-    const { fetchedSongArray, counter } = this.state;
-    console.log('looke here', fetchedSongArray[counter]);
+
+    const { fetchedSong, songs } = this.state;
+    console.log(songs);
     return (
       <div>
+
         {/* This plays our song */}
         <figure>
           <figcaption>What is that song?</figcaption>
-        
-           
-          <audio
-            controls
-            src={fetchedSongArray[0]?.song}>
+
+          {fetchedSong &&
+            <audio
+              controls
+              src={fetchedSong[0].song}>
               Your browser does not support the
-            <code>audio</code> element.
-          </audio>
-          
+              <code>audio</code> element.
+            </audio>
+
+          }
+
         </figure>
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
         <button onClick={this.handleClick}>GO AWAY</button>
+        <Timer></Timer>
       </div >
     );
   }

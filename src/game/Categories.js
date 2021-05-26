@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-
 import { categories } from '../data/data.js';
+import { makeQueryList } from '../utils/utils';
 import './Categories.css';
 
 export default class InitPage extends Component {
   state = {
     catCount: 0,
-    endButton: false
+    endButton: false,
+    cat: '',
+    songs: []
   }
 
   handleSwitch = () => {
@@ -15,15 +17,28 @@ export default class InitPage extends Component {
       this.setState({ endButton: !this.state.endButton });
   }
 
-  handleSubmit = async e => {
-    const { catCount } = this.state;
-    const { history, error } = this.props;
+  onValueChange = e => {
+    this.setState({ cat: e.target.value });
+  }
 
-    e.preventDefault();
-
+  handleSubmit = e => {
     try {
+      e.preventDefault();
+      const { cat, songs } = this.state;
+      const { history } = this.props;
+      this.setState.catCount++;
 
-      history.push('/game');
+      const catQueryList = makeQueryList(categories[cat].songs);
+
+      const stringyCat = JSON.stringify(catQueryList);
+      localStorage.setItem('SONGS', stringyCat);
+
+
+      console.log('QUERY LIST:', songs);
+
+
+      history.push('/songpage');
+
     }
     catch (err) {
       this.setState({ error: err.error });
@@ -35,14 +50,14 @@ export default class InitPage extends Component {
 
     return (
       <div>
-        Welcome to the game setup page.
-        <form className='selection-form'>
+        Choose A Category!
+        <form className='selection-form' onSubmit={this.handleSubmit}>
           <ul className='CategoryList'>
-            {categories.map(category => (
+            {categories.map((category, i) => (
               <li>
                 <label>
                   {category.category}
-                  <input type='radio' name='category' value={category.category} />
+                  <input type='radio' name='category' value={i} onChange={this.onValueChange} />
                 </label>
               </li>
             ))}
