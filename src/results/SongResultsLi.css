@@ -1,0 +1,10 @@
+.SongResultsLi {
+  display: flex;
+  width: 200px;
+  margin: 5px;
+}
+
+img {
+  max-width: 100%;
+}
+
