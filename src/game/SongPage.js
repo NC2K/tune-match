@@ -34,7 +34,7 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong, counter, songs } = this.state;
+    const { fetchedSong, songs } = this.state;
     console.log(songs);
     return (
       <div>
