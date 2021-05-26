@@ -9,8 +9,10 @@ export default class SongPage extends Component {
   state = {
     songs: [],
     fetchedSong: null,
-    round: 0,
-    counter: 0
+    counter: 0,
+    userInput: '',
+    score: 0
+
   }
 
   async componentDidMount() {
@@ -31,11 +33,30 @@ export default class SongPage extends Component {
     this.setState({ fetchedSong: nextSong });
   };
 
+  handleChange = ({ target }) => {
+    this.setState({ userInput: target.value });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { userInput, fetchedSong, score } = this.state; 
+    if (userInput === fetchedSong[0].title) {
+      
+      this.setState({ score: score + 100 });
+      console.log('Score', score);
+      this.handleClick();
+    } else {
+      console.log('WROOONNNGG');
+    }
+    this.setState({ });
+  }
 
   render() {
 
-    const { fetchedSong, songs } = this.state;
-    console.log(songs);
+    const { fetchedSong, counter, songs, userInput } = this.state;
+    // console.log('songs', songs);
+    // console.log('user', userInput);
+    // console.log('counter', counter);
     return (
       <div>
 
@@ -56,7 +77,11 @@ export default class SongPage extends Component {
         </figure>
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
-        <button onClick={this.handleClick}>GO AWAY</button>
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.handleChange}/>
+          <button>Guess</button>
+        </form>
+        <button onClick={this.handleClick}>Skip It</button>
         <Timer></Timer>
       </div >
     );
