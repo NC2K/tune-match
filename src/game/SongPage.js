@@ -10,7 +10,8 @@ export default class SongPage extends Component {
     songs: [],
     fetchedSong: null,
     round: 0,
-    counter: 0
+    counter: 0,
+    userInput: ''
   }
 
   async componentDidMount() {
@@ -31,11 +32,16 @@ export default class SongPage extends Component {
     this.setState({ fetchedSong: nextSong });
   };
 
+  handleChange = ({ target }) => {
+    this.setState({ userInput: target.value });
+  }
 
   render() {
 
-    const { fetchedSong, counter, songs } = this.state;
-    console.log(songs);
+    const { fetchedSong, counter, songs, userInput } = this.state;
+    console.log('songs', songs);
+    console.log('user', userInput);
+    console.log('counter', counter);
     return (
       <div>
 
@@ -56,7 +62,10 @@ export default class SongPage extends Component {
         </figure>
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
-        <button onClick={this.handleClick}>GO AWAY</button>
+        <form>
+          <input onChange={this.handleChange}/>
+          <button onClick={this.handleClick}>GO AWAY</button>
+        </form>
         <Timer></Timer>
       </div >
     );
