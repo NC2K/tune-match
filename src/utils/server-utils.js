@@ -22,13 +22,24 @@ export async function signUp(user) {
   return response.body;
 }
 
-export async function getPlaylist(songArr) {
-  const playlist = await Promise.all(songArr.map(async song => {
-    const response = await request
-      .get('/api/categories/:search')
-      .set('Authorization', window.localStorage.getItem('TOKEN'))
-      .query({ search: song });
-    return response.body;
-  }));
-  return playlist.flat();
+// export async function getPlaylist(songArr) {
+//   const playlist = await Promise.all(songArr.map(async song => {
+//     const response = await request
+//       .get('/api/categories/:search')
+//       .set('Authorization', window.localStorage.getItem('TOKEN'))
+//       .query({ search: song });
+//     return response.body;
+//   }));
+//   return playlist.flat();
+// }
+
+export async function getSong(songArr, counter) {
+  
+  const playlist = await request
+    .get('/api/categories/:search')
+    .set('Authorization', window.localStorage.getItem('TOKEN'))
+    .query({ search: songArr[counter] });
+  console.log(playlist.body);
+  return playlist.body;
 }
+  
