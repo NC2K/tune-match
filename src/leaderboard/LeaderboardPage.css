@@ -1,0 +1,14 @@
+.LeaderBoardPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.resultsHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.resultsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
