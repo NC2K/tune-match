@@ -64,7 +64,7 @@ export default class SongPage extends Component {
         {/* On onended, load the next song.*/}
         <form>
           <input onChange={this.handleChange}/>
-          <button onClick={this.handleClick}>GO AWAY</button>
+          <button onClick={this.handleClick}>Guess That Tune</button>
         </form>
         <Timer></Timer>
       </div >
