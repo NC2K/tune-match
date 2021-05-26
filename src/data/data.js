@@ -224,9 +224,22 @@ export const categories = [
       'Stylo+Gorillaz',
       '3+on+E+(Feat.+Antwaun+Stanley)+Vulfpeck',
       'Frontier+Psychiatrist+The+Avalanches',
-      'Gossip+Folks+Missy+Elliott'
+      'Gossip+Folks+Missy+Elliott',
+      'Beetlejuice+Main+Titles+Danny+Elfman',
+      'Twisted+Nerve+The+City+of+Prague+Philharmonic+Orchestra',
+      'Hedwig\'s+Theme+John+Williams',
+      'Zero+to+Hero+Hercules',
+      'The+Uruk-Hai+The+Lord+of+the+Rings:+The+Two+Towers',
+      'Beans+(Solo+Acoustic)+Nirvana',
+      'Powerhouse+Raymond+Scott',
+      'Dani+Buddy+Greco',
+      'Push+It+Salt-N-Pepa',
+      'Pokemon+Theme+Jason+Paige',
+      'Go+Go+Power+Rangers+Power+Rangers+Orchestra',
+      'Star+Trek+Theme+The+Columbia+Studio+Orchestra',
+      'Rainbow+Connection+Kermit',
+      'Pure+Imagination+Gene+Wilder'
 
-    
     ]
   },
 ];
