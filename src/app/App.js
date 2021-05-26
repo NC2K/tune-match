@@ -11,6 +11,7 @@ import Categories from '../game/Categories';
 import Footer from './Footer';
 import Header from './Header';
 import Home from '../home/Home';
+import ResultsPage from './results/ResultsPage';
 import SongPage from '../game/SongPage';
 
 import './App.css';
@@ -60,6 +61,11 @@ class App extends Component {
               <Route path="/songpage" exact={true}
                 render={routerProps => (
                   <SongPage {...routerProps} />)}
+              />
+
+              <Route path="/resultspage" exact={true}
+                render={routerProps => (
+                  <ResultsPage {...routerProps} />)}
               />
 
               <Route path="/resources/:id"

@@ -24,6 +24,21 @@ export default class SongPage extends Component {
     this.setState({ fetchedSongArray: playlist });
   }
 
+  handleSubmit = async e => {
+    const { isSignUp } = this.state;
+    const { onUser, history } = this.props;
+
+    e.preventDefault();
+  }
+
+  handleClick = () => {
+    if (this.props.key !== 0) {
+      const liStyle = {
+        display: 'none'
+      };
+    }
+  }
+
   render() {
     console.log('fetched song array', this.state.fetchedSongArray);
     const { fetchedSongArray } = this.state;
@@ -32,14 +47,23 @@ export default class SongPage extends Component {
         {/* This plays our song */}
         <figure>
           <figcaption>What is that song?</figcaption>
-          {fetchedSongArray.map(song => (
-            <audio
-              controls
-              src={song.song}>
-              Your browser does not support the
-              <code>audio</code> element.
-            </audio>))
-          }
+          <ul>
+            {fetchedSongArray.map(song => (
+              <form className="songList" onSubmit={this.handleSubmit}>
+                <li key={song}>
+                  <audio
+                    controls
+                    src={song.song}>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                  <button className="checkAnswer" type="button" onClick={this.handleClick}>Submit</button>
+                </li>
+              </form>
+            ))
+            }
+          </ul>
+
         </figure>
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
