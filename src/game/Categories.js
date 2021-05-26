@@ -25,17 +25,17 @@ export default class InitPage extends Component {
     try {
       e.preventDefault();
       const { cat, songs } = this.state;
-      const { history, error } = this.props;
-      this.state.catCount++;
+      const { history } = this.props;
+      this.setState.catCount++;
 
       const catQueryList = makeQueryList(categories[cat].songs);
 
       const stringyCat = JSON.stringify(catQueryList);
       localStorage.setItem('SONGS', stringyCat);
-      
+
 
       console.log('QUERY LIST:', songs);
-    
+
 
       history.push('/songpage');
 
@@ -46,7 +46,7 @@ export default class InitPage extends Component {
   }
 
   render() {
-    const { endButton, cat } = this.state;
+    const { endButton } = this.state;
 
     return (
       <div>
