@@ -11,7 +11,7 @@ import Categories from '../game/Categories';
 import Footer from './Footer';
 import Header from './Header';
 import Home from '../home/Home';
-import ResultsPage from './results/ResultsPage';
+import ResultsPage from '../results/ResultsPage';
 import SongPage from '../game/SongPage';
 
 import './App.css';
@@ -21,7 +21,7 @@ class App extends Component {
     token: window.localStorage.getItem('TOKEN'),
     userId: window.localStorage.getItem('USER_ID'),
     userName: window.localStorage.getItem('USER_NAME')
- 
+
   }
 
   handleUser = user => {
@@ -35,7 +35,7 @@ class App extends Component {
 
   render() {
     // const { token } = this.state; (use with favorites later)
-  
+
     return (
       <div className="App">
         <Router>
@@ -58,12 +58,12 @@ class App extends Component {
 
               <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <Categories {...routerProps}/>)}
+                  <Categories {...routerProps} />)}
               />
 
               <Route path="/songpage" exact={true}
                 render={routerProps => (
-                  <SongPage {...routerProps}/>)}
+                  <SongPage {...routerProps} />)}
               />
 
               <Route path="/resultspage" exact={true}
