@@ -33,7 +33,6 @@ class App extends Component {
   }
 
   render() {
-    // const { token } = this.state; (use with favorites later)
 
     return (
       <div className="App">
