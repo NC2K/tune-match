@@ -67,7 +67,7 @@ export default class SongPage extends Component {
     const { fetchedSong, counter } = this.state;
 
     return (
-      <div>
+      <div className="SongPage">
         <div>Question {counter + 1}/10</div>
         {/* This plays our song */}
         <figure>
