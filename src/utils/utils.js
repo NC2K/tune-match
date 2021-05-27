@@ -35,21 +35,27 @@ export function getSongFromStorage() {
   }
 }
 
-export function setSong(receivedSongs){
+export function setSong(receivedSongs) {
   const storedSongs = JSON.stringify(receivedSongs);
   localStorage.setItem('SONGSDATA', storedSongs);
 }
 
-export function addSongToStorage(newSong){
-
+export function addSongToStorage(newSong) {
   const storedSongs = getSongFromStorage();
   storedSongs.push(newSong);
   setSong(storedSongs);
 }
 
-// export function holdScore(category, score) {
-//   const score = {
-//     cat1: category,
-//     total: score
-//   };
-// }
+export function checkAnswer(userInput, fetchedSong) {
+  const songTitle = fetchedSong.toLowerCase();
+  let matchingTerms = songTitle.split(' ');
+  let newTerms = matchingTerms.filter(word => word.length > 2 && !word.includes('.', '!'));
+  console.log(newTerms);
+  userInput = userInput.toLowerCase();
+  const newInput = userInput.split(' ');
+  if (newTerms.includes(newInput[0]) || newTerms.includes(newInput[1]) ||
+    newTerms.includes(newInput[2]) || userInput === songTitle)
+    return true;
+  else
+    return false;
+}
