@@ -13,6 +13,7 @@ export default class Home extends Component {
     this.setState({ isLoggedIn });
   }
 
+
   render() {
     let { isLoggedIn } = this.state;
 
@@ -25,7 +26,7 @@ export default class Home extends Component {
     }
     return (
       <div className="Home">
-        <h2>Can you name that song?</h2>
+        <h2 className="glow">Tune Match</h2>
 
         <p>{display}</p>
       </div>

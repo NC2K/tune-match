@@ -1,18 +1,40 @@
 .AboutUs {
-
-}
-
-.avatar {
-  color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bios {
   display: grid;
-  grid-template-columns: .15fr 1fr;
+  
+  justify-content: center;
   align-items: center;
   margin: 20px;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.avatar {
+  color: blue;
+  display: flex;
+}
+
+.bio-media {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.profile {
+  width: 250px;
+  height: 300px;
+}
+
+.links {
+  display: flex;
+  width: 75px;
+  height: 75px;
 }
 
 main {

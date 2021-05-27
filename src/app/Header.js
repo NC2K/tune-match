@@ -20,24 +20,24 @@ class Header extends Component {
 
     if (isLoggedIn) {
       nav = <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="categories">Play game</NavLink>
-        <NavLink to="leaderboard">Leaderboard</NavLink>
-        <NavLink to="aboutus">About Us</NavLink>
+        <NavLink className='glow' to="/">Home</NavLink>
+        <NavLink className='glow' to="categories">Play game</NavLink>
+        <NavLink className='glow' to="leaderboard">Leaderboard</NavLink>
+        <NavLink className='glow' to="aboutus">About Us</NavLink>
       </nav>;
     } else {
       nav =
         <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/auth">Login/Sign Up</NavLink>
-          <NavLink to="aboutus">About Us</NavLink>
+          <NavLink className='glow' to="/">Home</NavLink>
+          <NavLink className='glow' to="/auth">Login/Sign Up</NavLink>
+          <NavLink className='glow' to="aboutus">About Us</NavLink>
         </nav>;
     }
 
     return (
       <header className="Header">
 
-        <h1>Tune Match</h1>
+        <h1 className='glow'>Tune Match</h1>
         <nav>{nav}</nav>
       </header>
     );

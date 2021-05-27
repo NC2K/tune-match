@@ -61,4 +61,3 @@ export async function putScores(score) {
 
   return response.body;
 }
-

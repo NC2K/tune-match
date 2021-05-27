@@ -1,4 +1,19 @@
 
+@font-face {
+  font-family: copasetic;
+  src: url('../fonts/CopaseticNF.ttf') format('ttf');
+}
+
+li {
+  display: block;
+}
+
+.question {
+  font-family: copasetic;
+  font-size: 2rem;
+}
+
+
 * {
   box-sizing: border-box;
 }
@@ -50,32 +65,4 @@ img {
   }
 }
 
-/* .color-backdrop
-{
-    height:300px;
-    width:300px;
-    border:1px solid black;
-    font-size:30px;
-    background: linear-gradient(130deg, #ff7e00, #ffffff, #5cff00);
-    background-size: 200% 200%;
 
-    -webkit-animation: Animation 5s ease infinite;
-    -moz-animation: Animation 5s ease infinite;
-    animation: Animation 5s ease infinite;
-}
-
-@-webkit-keyframes Animation {
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-@-moz-keyframes Animation {
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-@keyframes Animation { 
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-} */
