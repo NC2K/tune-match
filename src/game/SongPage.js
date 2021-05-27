@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Timer from '../timer/Timer';
 
 import { getSong } from '../utils/server-utils';
+import { addSongToStorage } from '../utils/utils';
 import './SongPage.css';
 
 
@@ -35,6 +36,7 @@ export default class SongPage extends Component {
       this.state.counter++;
     }
     const nextSong = await getSong(this.state.songs, this.state.counter);
+    addSongToStorage(nextSong);
     this.setState({ fetchedSong: nextSong });
   };
 
