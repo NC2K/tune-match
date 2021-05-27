@@ -20,7 +20,7 @@ export default class SongPage extends Component {
 
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
     this.setState({ songs: parsedSongs });
-    // console.log(this.state.songs);
+    console.log(this.state.songs);
     // setTimeout(async() => {  
     const currentSong = await getSong(this.state.songs, this.state.counter);
     this.setState({ fetchedSong: currentSong }, () => this.handleClick());
@@ -64,7 +64,7 @@ export default class SongPage extends Component {
   render() {
 
     const { fetchedSong, counter } = this.state;
-
+    console.log(this.state.songs);
     return (
       <div>
         <div>Question {counter + 1}/10</div>
