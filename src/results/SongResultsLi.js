@@ -14,11 +14,11 @@ export default class SongResultsLi extends Component {
         </div>
         <img src={song.albumArt} alt={song.title} />
         <audio
-              controls
-              src={song.song}>
-              Your browser does not support the
-              <code>audio</code> element.
-            </audio>
+          controls
+          src={song.song}>
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
       </li>
     );
   }
