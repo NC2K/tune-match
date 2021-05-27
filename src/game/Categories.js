@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { categories } from '../data/data.js';
 import { makeQueryList } from '../utils/utils';
+import { postScores } from '../utils/server-utils';
 import './Categories.css';
 
 export default class InitPage extends Component {
@@ -33,13 +34,15 @@ export default class InitPage extends Component {
       const stringyCat = JSON.stringify(catQueryList);
       localStorage.setItem('SONGS', stringyCat);
 
-
-      console.log('QUERY LIST:', songs);
-
+      const score = {
+        cat1: categories[cat].category,
+        total: 0
+      };
+      postScores(score);
 
       history.push('/songpage');
-
     }
+
     catch (err) {
       this.setState({ error: err.error });
     }

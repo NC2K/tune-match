@@ -13,19 +13,14 @@ export default class SongPage extends Component {
     counter: -1,
     userInput: '',
     score: 0
-
   }
 
   async componentDidMount() {
-
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
     this.setState({ songs: parsedSongs });
-    console.log(this.state.songs);
-    // setTimeout(async() => {  
+
     const currentSong = await getSong(this.state.songs, this.state.counter);
     this.setState({ fetchedSong: currentSong }, () => this.handleClick());
-    // }, 2000);
-    console.log(this.state.songs);
   }
 
   handleClick = async () => {
@@ -39,6 +34,7 @@ export default class SongPage extends Component {
 
       this.setState({ fetchedSong: nextSong });
     } else {
+
       history.push('/resultspage');
     }
   };
@@ -50,10 +46,11 @@ export default class SongPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { userInput, fetchedSong, score } = this.state;
-    if (userInput === fetchedSong[0].title) {
 
-      this.setState({ score: score + 100 });
-      console.log('Score', score);
+    if (userInput === fetchedSong[0].title) {
+      let points = score + 100;
+      this.setState({ score: points });
+      console.log('Score', points);
       this.handleClick();
     } else {
       console.log('WROOONNNGG');
@@ -64,7 +61,7 @@ export default class SongPage extends Component {
   render() {
 
     const { fetchedSong, counter } = this.state;
-    console.log(this.state.songs);
+
     return (
       <div>
         <div>Question {counter + 1}/10</div>
