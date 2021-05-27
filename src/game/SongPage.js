@@ -29,15 +29,18 @@ export default class SongPage extends Component {
   }
 
   handleClick = async () => {
+    const {counter} = this.state;
+    const {history} = this.props;
 
-    if (this.state.songs === 'undefined') {
-      this.state.counter = 0;
-    } else {
-      this.state.counter++;
-    }
+    if (counter < 10) {
+    this.state.counter++;
     const nextSong = await getSong(this.state.songs, this.state.counter);
     addSongToStorage(nextSong);
+    
     this.setState({ fetchedSong: nextSong });
+    } else {
+      history.push('/resultspage');
+    }
   };
 
   handleChange = ({ target }) => {
@@ -60,11 +63,11 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong } = this.state;
+    const { fetchedSong, counter } = this.state;
 
     return (
       <div>
-
+        <div>Question {counter +1}/10</div>
         {/* This plays our song */}
         <figure>
           <figcaption>What is that song?</figcaption>
