@@ -19,11 +19,18 @@ export default class ResultsPage extends Component {
     },
     ]
   }
+  componentDidMount = () => {
+    const [fetchedSongArray] = JSON.parse(localStorage.getItem('SONGSDATA'));
+    
+    this.setState({fetchedSongArray: [fetchedSongArray].flat()})
+    console.log(fetchedSongArray);
+  }
 
   render() {
+    const {fetchedSongArray} = this.state;
     return (
       <div className="ResultsPage">
-        <SongResultsUl fetchedSongArray={this.state.fetchedSongArray} />
+        <SongResultsUl fetchedSongArray={fetchedSongArray} />
       </div>
     );
   }
