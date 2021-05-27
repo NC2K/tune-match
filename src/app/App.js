@@ -22,8 +22,7 @@ class App extends Component {
   state = {
     token: window.localStorage.getItem('TOKEN'),
     userId: window.localStorage.getItem('USER_ID'),
-    userName: window.localStorage.getItem('USER_NAME')
-
+    userName: window.localStorage.getItem('USER_NAME'),
   }
 
   handleUser = user => {
@@ -32,8 +31,6 @@ class App extends Component {
     window.localStorage.setItem('USER_NAME', user.name);
     this.setState({ token: user.token });
   }
-
-
 
   render() {
     // const { token } = this.state; (use with favorites later)
@@ -47,7 +44,8 @@ class App extends Component {
             <Switch>
               <Route path="/" exact={true}
                 render={routerProps => (
-                  <Home {...routerProps} />
+                  <Home {...routerProps}
+                    onUser={this.handleUser} />
                 )}
               />
 
