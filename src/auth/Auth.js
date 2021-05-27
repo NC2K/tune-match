@@ -48,21 +48,48 @@ export default class Auth extends Component {
         {isSignUp && <p>
           <label>
             <span>Name</span>
-            <input name='name' value={name} required onChange={this.handleChange} />
+            <input name='name' value={name} required onChange={this.handleChange}/>
           </label>
         </p>}
 
         <p>
           <label>
             <span>email</span>
-            <input name='email' value={email} required onChange={this.handleChange} />
+            <input name='email' value={email} required onChange={this.handleChange}/>
           </label>
         </p>
 
         {isSignUp && <p>
-          <label> {/*Set avatar up like radio button or drop down menu */}
+          <label className='Avatar'> {/*Set avatar up like radio button or drop down menu */}
             <span>avatar</span>
-            <input name='avatar' value={avatar} required onChange={this.handleChange} />
+            <label>
+              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+              <img src='/wizard.png' alt='Wizard'/>
+            </label>
+            <label>
+              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+              <img src='/dog.png' alt='Doggo'/>
+            </label>
+            <label>
+              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+              <img src='/beans.png' alt='Beans'/>
+            </label>
+            <label>
+              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+              <img src='/robot.png' alt='Robot'/>
+            </label>
+            <label>
+              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+              <img src='/boombox.png' alt='Boombox'/>
+            </label>
+            <label>
+              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+              <img src='/monke.png' alt='Ape'/>
+            </label>
+            <label>
+              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+              <img src='/laptop.png' alt='Laptop'/>
+            </label>
           </label>
         </p>}
 

@@ -232,7 +232,7 @@ export const categories = [
       'Frontier+Psychiatrist+The+Avalanches',
       'Gossip+Folks+Missy+Elliott',
       'Beetlejuice+Main+Titles+Danny+Elfman',
-      'Twisted+Nerve+The+City+of+Prague+Philharmonic+Orchestra',
+      'Twisted+Nerve+Bernard+Herrmann',
       'Hedwig\'s+Theme+John+Williams',
       'Zero+to+Hero+Hercules',
       'The+Uruk-Hai+The+Lord+of+the+Rings:+The+Two+Towers',
@@ -241,7 +241,6 @@ export const categories = [
       'Dani+Buddy+Greco',
       'Push+It+Salt-N-Pepa',
       'Pokemon+Theme+Jason+Paige',
-      'Go+Go+Power+Rangers+Power+Rangers+Orchestra',
       'Rainbow+Connection+Kermit',
       'Pure+Imagination+Gene+Wilder'
 

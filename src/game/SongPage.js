@@ -24,7 +24,7 @@ export default class SongPage extends Component {
   }
 
   handleClick = async () => {
-    const { counter, score } = this.state;
+    const { counter } = this.state;
     const { history } = this.props;
 
     if (counter < 10) {
@@ -34,7 +34,8 @@ export default class SongPage extends Component {
 
       this.setState({ fetchedSong: nextSong });
     } else {
-      putScores(JSON.parse(localStorage.getItem('CATEGORY')) , score)
+      
+      // putScores(score);
       history.push('/resultspage');
     }
   };
@@ -50,8 +51,11 @@ export default class SongPage extends Component {
     if (userInput === fetchedSong[0].title) {
       let points = score + 100;
       this.setState({ score: points });
-      console.log('Score', points);
+      
+      putScores(points);
+      
       this.handleClick();
+
     } else {
       console.log('WROOONNNGG');
     }
