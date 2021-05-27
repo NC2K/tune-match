@@ -21,3 +21,8 @@
   color: blue;
   cursor: pointer;
 }
+
+.Avatar input {
+  display: none;
+  display: inline-block;
+}
