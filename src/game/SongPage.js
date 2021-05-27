@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { getSong, putScores } from '../utils/server-utils';
-import { addSongToStorage } from '../utils/utils';
+import { addSongToStorage, checkAnswer } from '../utils/utils';
 import './SongPage.css';
 
 
@@ -84,10 +84,10 @@ export default class SongPage extends Component {
     e.preventDefault();
     const { userInput, fetchedSong, score } = this.state;
 
-    if (userInput === fetchedSong[0].title) {
+    if (checkAnswer(userInput, fetchedSong[0].title)) {
       let points = score + 100;
       this.setState({ score: points });
-
+      console.log('Right!');
       putScores(points);
 
       this.handleClick();
