@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Timer from '../timer/Timer';
 
-import { getSong } from '../utils/server-utils';
+import { getSong, putScores } from '../utils/server-utils';
 import { addSongToStorage } from '../utils/utils';
 import './SongPage.css';
 
@@ -24,7 +24,7 @@ export default class SongPage extends Component {
   }
 
   handleClick = async () => {
-    const { counter } = this.state;
+    const { counter, score } = this.state;
     const { history } = this.props;
 
     if (counter < 10) {
@@ -34,7 +34,7 @@ export default class SongPage extends Component {
 
       this.setState({ fetchedSong: nextSong });
     } else {
-
+      putScores(JSON.parse(localStorage.getItem('CATEGORY')) , score)
       history.push('/resultspage');
     }
   };

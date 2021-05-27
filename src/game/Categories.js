@@ -31,13 +31,18 @@ export default class InitPage extends Component {
 
       const catQueryList = makeQueryList(categories[cat].songs);
 
-      const stringyCat = JSON.stringify(catQueryList);
-      localStorage.setItem('SONGS', stringyCat);
+      const stringyQueryList = JSON.stringify(catQueryList);
+      localStorage.setItem('SONGS', stringyQueryList);
+
+      const stringyCat = JSON.stringify(categories[cat].category);
+      localStorage.setItem('CATEGORY', stringyCat )
 
       const score = {
         cat1: categories[cat].category,
         total: 0
       };
+
+      
       postScores(score);
 
       history.push('/songpage');

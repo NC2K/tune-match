@@ -53,9 +53,10 @@ export async function postScores(score) {
 export async function putScores(score) {
   const response = await request
     .put(`/api/scores/${score.id}`)
-    .ok()
+    .ok(res => res.status < 500)
     .set('Authorization', window.localStorage.getItem('TOKEN'))
     .send(score);
 
   return response.body;
 }
+
