@@ -27,7 +27,7 @@ export default class SongPage extends Component {
     const { counter } = this.state;
     const { history } = this.props;
 
-    if (counter < 10) {
+    if (counter < 9) {
       this.state.counter++;
       const nextSong = await getSong(this.state.songs, this.state.counter);
       addSongToStorage(nextSong);
