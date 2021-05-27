@@ -10,7 +10,7 @@ export default class SongPage extends Component {
   state = {
     songs: [],
     fetchedSong: null,
-    counter: 0,
+    counter: -1,
     userInput: '',
     score: 0
 
