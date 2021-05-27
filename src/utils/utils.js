@@ -7,7 +7,7 @@ export function randomNum(category) {
 export function indexSelector(category) {
   const songs = [];
   // if newNumber !== anything in songs array, push to songs array
-  while (songs.length < 11) {
+  while (songs.length < 10) {
     let song = randomNum(category);
     if (songs.indexOf(song) === -1) songs.push(song);
   }

@@ -10,34 +10,33 @@ export default class SongPage extends Component {
   state = {
     songs: [],
     fetchedSong: null,
-    counter: 0,
+    counter: -1,
     userInput: '',
     score: 0
-
   }
 
   async componentDidMount() {
-
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
     this.setState({ songs: parsedSongs });
-    // console.log(this.state.songs);
-    // setTimeout(async() => {  
+
     const currentSong = await getSong(this.state.songs, this.state.counter);
     this.setState({ fetchedSong: currentSong }, () => this.handleClick());
-    // }, 2000);
-    console.log(this.state.songs);
   }
 
   handleClick = async () => {
+    const { counter } = this.state;
+    const { history } = this.props;
 
-    if (this.state.songs === 'undefined') {
-      this.state.counter = 0;
-    } else {
+    if (counter < 10) {
       this.state.counter++;
+      const nextSong = await getSong(this.state.songs, this.state.counter);
+      addSongToStorage(nextSong);
+
+      this.setState({ fetchedSong: nextSong });
+    } else {
+
+      history.push('/resultspage');
     }
-    const nextSong = await getSong(this.state.songs, this.state.counter);
-    addSongToStorage(nextSong);
-    this.setState({ fetchedSong: nextSong });
   };
 
   handleChange = ({ target }) => {
@@ -47,10 +46,11 @@ export default class SongPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { userInput, fetchedSong, score } = this.state;
-    if (userInput === fetchedSong[0].title) {
 
-      this.setState({ score: score + 100 });
-      console.log('Score', score);
+    if (userInput === fetchedSong[0].title) {
+      let points = score + 100;
+      this.setState({ score: points });
+      console.log('Score', points);
       this.handleClick();
     } else {
       console.log('WROOONNNGG');
@@ -60,11 +60,11 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong } = this.state;
+    const { fetchedSong, counter } = this.state;
 
     return (
       <div>
-
+        <div>Question {counter + 1}/10</div>
         {/* This plays our song */}
         <figure>
           <figcaption>What is that song?</figcaption>

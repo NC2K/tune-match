@@ -26,7 +26,8 @@ export const categories = [
     ]
   },
 
-  { category: '60\'s',
+  {
+    category: '60\'s',
     songs: [
       'The+Chipmunk+Song+The+Chipmunks+with+David+Seville',
       'Venus+Frankie+Avalon',
@@ -67,7 +68,8 @@ export const categories = [
       'Happy+Together+The+Turtles'
     ]
   },
-  { category: '70\'s',
+  {
+    category: '70\'s',
     songs: [
       'Raindrops+Keep+Fallin\'+On+My+Head+B.J.+Thomas',
       'I+Want+You+Back+Jackson+5',
@@ -112,7 +114,8 @@ export const categories = [
       'Play+That+Funky+Music+Elton+John+Kiki+Dee'
     ]
   },
-  { category: '80\'s',
+  {
+    category: '80\'s',
     songs: [
       'Rock+with+You+Michael+Jackson',
       'Crazy+Little+Thing+Called+Love+Queen',
@@ -149,7 +152,8 @@ export const categories = [
       'Faith+George+Michael'
     ]
   },
-  { category: '90\'s',
+  {
+    category: '90\'s',
     songs: [
       'Vogue+Madonna',
       'Ice+Ice+Baby+Vanilla+Ice',
@@ -175,7 +179,8 @@ export const categories = [
       'The+Sign+Ace+of+Base'
     ]
   },
-  { category: '2000\'s',
+  {
+    category: '2000\'s',
     songs: [
       'Try+Again+Aaliyah',
       'It\'s+Gonna+Be+Me+\'N+Sync',
@@ -197,7 +202,8 @@ export const categories = [
       'Hips+Don\'t+Lie+Shakira+featuring+Wyclef+Jean'
     ]
   },
-  { category: '2010\'s',
+  {
+    category: '2010\'s',
     songs: [
       'Rolling+in+the+Deep+Adele',
       'Shake+It+Off+Taylor+Swift',
@@ -216,9 +222,10 @@ export const categories = [
       'Somebody+That+I+used+to+Know+Gotye+featuring+Kimbra',
       'Call+Me+Maybe+Carly+Rae+Jepson',
       'Rude+Boy+Rhianna'
-    ] 
+    ]
   },
-  { category: 'Mystery',
+  {
+    category: 'Mystery',
     songs: [
       'Stylo+Gorillaz',
       '3+on+E+(Feat.+Antwaun+Stanley)+Vulfpeck',
@@ -235,7 +242,6 @@ export const categories = [
       'Push+It+Salt-N-Pepa',
       'Pokemon+Theme+Jason+Paige',
       'Go+Go+Power+Rangers+Power+Rangers+Orchestra',
-      'Star+Trek+Theme+The+Columbia+Studio+Orchestra',
       'Rainbow+Connection+Kermit',
       'Pure+Imagination+Gene+Wilder'
 

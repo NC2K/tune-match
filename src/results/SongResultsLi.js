@@ -5,7 +5,7 @@ export default class SongResultsLi extends Component {
 
   render() {
     const { song } = this.props; //this probably from local storage instead
-    console.log('Li fetched array', song);
+
     return (
       <li className="SongResultsLi">
         <h3>{song.title}</h3>
