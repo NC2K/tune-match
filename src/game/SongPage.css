@@ -1,3 +1,81 @@
-li {
-  display: block;
+
+* {
+  box-sizing: border-box;
 }
+
+.SongPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  border: 2px black solid;
+  border-radius: 50px;
+  --white: #fff;
+  --active-color: #00aeb0;
+}
+
+.audioGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionCounter {
+  font-weight: bold;
+}
+
+.volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 40px;
+}
+
+.color-backdrop {
+  background: linear-gradient(45deg, var(--active-color) 20%, transparent 100%) no-repeat;
+  animation: colorChange 10s alternate infinite;
+}
+
+@keyframes colorChange {
+  from {
+    filter: hue-rotate(0deg);
+  }
+	to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* .color-backdrop
+{
+    height:300px;
+    width:300px;
+    border:1px solid black;
+    font-size:30px;
+    background: linear-gradient(130deg, #ff7e00, #ffffff, #5cff00);
+    background-size: 200% 200%;
+
+    -webkit-animation: Animation 5s ease infinite;
+    -moz-animation: Animation 5s ease infinite;
+    animation: Animation 5s ease infinite;
+}
+
+@-webkit-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@-moz-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@keyframes Animation { 
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+} */

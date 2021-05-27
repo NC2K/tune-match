@@ -108,11 +108,11 @@ export default class SongPage extends Component {
     const { fetchedSong, counter, timeRemaining, volume } = this.state;
 
     return (
-      <div className="SongPage">
-        <div>Question {counter + 1}/10</div>
-        {/* This plays our song */}
-        <figure>
-          <figcaption>What is that song?</figcaption>
+      <div className="SongPage color-backdrop">
+        <div className="questionCounter">Question {counter + 1}/10</div>
+        <div className="audioGroup">
+
+          <p>What is that song?</p>
 
           {fetchedSong &&
             <audio
@@ -125,8 +125,11 @@ export default class SongPage extends Component {
 
           }
           <button onClick={this.handlePlay}>Let's do this!</button>
-          <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
-        </figure>
+          <div className="volume">
+            <img src="volume-icon.png" alt="volume" />
+            <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
+          </div>
+        </div>
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
         <form onSubmit={this.handleSubmit}>
