@@ -25,7 +25,7 @@ export default class InitPage extends Component {
   handleSubmit = e => {
     try {
       e.preventDefault();
-      const { cat, songs } = this.state;
+      const { cat } = this.state;
       const { history } = this.props;
       this.setState.catCount++;
 
@@ -42,7 +42,8 @@ export default class InitPage extends Component {
         total: 0
       };
 
-      
+      localStorage.removeItem('SONGSDATA');
+
       postScores(score);
 
       history.push('/songpage');
