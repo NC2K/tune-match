@@ -92,7 +92,6 @@ export const categories = [
       'Love+Train+The+O\'Jays',
       'The+Joker+Steve+Miller+Band',
       'Hooked+on+a+Feeling+Blue+Swede',
-      'Band+on+the+Run+Paul+McCartney+and+Wings',
       'Nothing+from+Nothing+Billy+Preston',
       'Cat\'s+in+the+Cradle+Harry+Chapin',
       'Fire+Ohio+Players',
