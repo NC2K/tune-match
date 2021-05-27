@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Timer from '../timer/Timer';
 
 import { getSong, putScores } from '../utils/server-utils';
 import { addSongToStorage } from '../utils/utils';
