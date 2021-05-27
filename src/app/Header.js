@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
@@ -8,28 +8,29 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    const isLoggedIn = window.localStorage.getItem('USER_ID') ? true : false;
+    let isLoggedIn = window.localStorage.getItem('USER_ID') ? true : false;
     this.setState({ isLoggedIn });
+    this.forceUpdate();
   }
 
   render() {
-    const { isLoggedIn } = this.state;
+    let { isLoggedIn } = this.state;
 
     let nav = '';
 
     if (isLoggedIn) {
       nav = <nav>
-        <Link to="/">Home</Link>
-        <Link to="categories">Play game</Link>
-        <Link to="leaderboard">Leaderboard</Link>
-        <Link to="aboutus">About Us</Link>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="categories">Play game</NavLink>
+        <NavLink to="leaderboard">Leaderboard</NavLink>
+        <NavLink to="aboutus">About Us</NavLink>
       </nav>;
     } else {
       nav =
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/auth">Login/Sign Up</Link>
-          <Link to="aboutus">About Us</Link>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/auth">Login/Sign Up</NavLink>
+          <NavLink to="aboutus">About Us</NavLink>
         </nav>;
     }
 
