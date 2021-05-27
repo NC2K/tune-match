@@ -68,7 +68,7 @@ export default class SongPage extends Component {
 
     return (
       <div>
-        <div>Question {counter + 1}/10</div>
+        <div className="question">Question {counter + 1}/10</div>
         {/* This plays our song */}
         <figure>
           <figcaption>What is that song?</figcaption>

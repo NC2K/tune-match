@@ -9,8 +9,7 @@ export default class AboutUs extends Component {
         <h1>About Us</h1><span></span>
         <div className="bios">
           <div className="avatar">Kalan Avatar</div>
-          <div>Kalan Proudmoore is a tasteful jazz pianist, with a repertoire spanning Annie Lennox to Charlie
-            and the Chocolate Factory. He likes games.</div>
+          <div>Kalan Prudhomme is a tasteful jazz pianist/music sommalier. He likes gorillas.</div>
           <div className="avatar">Katherine Avatar</div>
           <div>Katherine Tam is a distinguished and in-demand piano player, having been invited to the pokemon
             palace to play for Charmander's mom in the age of the Pokepocalypse. She likes cute shiba inus. </div>

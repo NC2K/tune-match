@@ -4,10 +4,11 @@ import './Home.css';
 
 export default class Home extends Component {
 
+
   render() {
     return (
       <div className="Home">
-        <h2>Can you name that song?</h2>
+        <h2 className="glow">Tune Match</h2>
 
         <Link to='/auth'>Sign in to Play</Link>
       </div>

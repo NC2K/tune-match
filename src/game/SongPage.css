@@ -1,3 +1,13 @@
+@font-face {
+  font-family: copasetic;
+  src: url('../fonts/CopaseticNF.ttf') format('ttf');
+}
+
 li {
   display: block;
+}
+
+.question {
+  font-family: copasetic;
+  font-size: 2rem;
 }

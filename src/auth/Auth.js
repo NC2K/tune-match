@@ -47,21 +47,21 @@ export default class Auth extends Component {
       <form className="Auth" onSubmit={this.handleSubmit}>
         {isSignUp && <p>
           <label>
-            <span>Name</span>
+            <span>Username:</span>
             <input name='name' value={name} required onChange={this.handleChange}/>
           </label>
         </p>}
 
         <p>
           <label>
-            <span>email</span>
+            <span>Email:</span>
             <input name='email' value={email} required onChange={this.handleChange}/>
           </label>
         </p>
 
         {isSignUp && <p>
-          <label className='Avatar'> {/*Set avatar up like radio button or drop down menu */}
-            <span>avatar</span>
+          <div>Select an Avatar:</div>
+          <fieldset className='Avatar'> {/*Set avatar up like radio button or drop down menu */}
             <label>
               <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
               <img src='/wizard.png' alt='Wizard'/>
@@ -90,12 +90,12 @@ export default class Auth extends Component {
               <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
               <img src='/laptop.png' alt='Laptop'/>
             </label>
-          </label>
+          </fieldset>
         </p>}
 
         <p>
           <label>
-            <span>password</span>
+            <span>Password:</span>
             <input name='password' value={password} type='password' required onChange={this.handleChange} />
           </label>
         </p>
