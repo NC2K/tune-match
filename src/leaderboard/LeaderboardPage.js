@@ -27,7 +27,7 @@ export default class LeaderboardPage extends Component {
         {scores.map(item => (
           <div className="resultsWrapper">
             <div className="cat1">{item.cat1}</div>
-            <div className="userName">{item.uName}</div>
+            <div className="userName">{item.uName}{item.avatar}</div>
             <div className="total">{item.total}</div>
           </div>
         ))}
