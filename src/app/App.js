@@ -22,8 +22,7 @@ class App extends Component {
   state = {
     token: window.localStorage.getItem('TOKEN'),
     userId: window.localStorage.getItem('USER_ID'),
-    userName: window.localStorage.getItem('USER_NAME')
-
+    userName: window.localStorage.getItem('USER_NAME'),
   }
 
   handleUser = user => {
@@ -33,10 +32,7 @@ class App extends Component {
     this.setState({ token: user.token });
   }
 
-
-
   render() {
-    // const { token } = this.state; (use with favorites later)
 
     return (
       <div className="App">
@@ -47,7 +43,8 @@ class App extends Component {
             <Switch>
               <Route path="/" exact={true}
                 render={routerProps => (
-                  <Home {...routerProps} />
+                  <Home {...routerProps}
+                    onUser={this.handleUser} />
                 )}
               />
 
@@ -60,7 +57,7 @@ class App extends Component {
 
               <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <Categories {...routerProps} />)}
+                  <Categories uName={this.state.userName} {...routerProps} />)}
               />
 
               <Route path="/songpage" exact={true}

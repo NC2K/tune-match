@@ -40,13 +40,14 @@ export default class InitPage extends Component {
 
       const score = {
         cat1: categories[cat].category,
-        total: 0
+        total: 0,
+        uName: this.props.uName
       };
 
       localStorage.removeItem('SONGSDATA');
-      
+
       const gameInstance = await postScores(score);
-      
+
       this.setState({ gameId: gameInstance.id });
       const stringyGameId = JSON.stringify(this.state.gameId);
       localStorage.setItem('GAMEID', stringyGameId);
