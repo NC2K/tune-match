@@ -12,7 +12,12 @@ export default class SongPage extends Component {
     fetchedSong: null,
     counter: -1,
     userInput: '',
-    score: 0
+    score: 0,
+
+    startTime: null,
+    allowedTime: 15,
+    interval: 0,
+    timeRemaining: -1
   }
 
   async componentDidMount() {
@@ -23,6 +28,29 @@ export default class SongPage extends Component {
     this.setState({ fetchedSong: currentSong }, () => this.handleClick());
   }
 
+  startTimer() {
+    const { allowedTime } = this.state;
+    const interval = setInterval(() => {
+      const elapsedTime = new Date() - this.state.startTime;
+      const timeRemaining = Math.round(((allowedTime * 1000) - elapsedTime) / 1000);
+      this.setState({ timeRemaining });
+      if (timeRemaining <= 0) {
+        this.stopTimer();
+        alert('Out of Time!');
+      }
+    }, 1000);
+    this.setState({ interval, startTime: new Date(), timeRemaining: allowedTime });
+  }
+
+  stopTimer() {
+    clearInterval(this.state.interval);
+    this.setState({ interval: 0, startTime: null, timeRemaining: -1 });
+  }
+
+  handlePlay = () => {
+    this.startTimer();
+  };
+
   handleClick = async () => {
     const { counter } = this.state;
     const { history } = this.props;
@@ -32,9 +60,11 @@ export default class SongPage extends Component {
       const nextSong = await getSong(this.state.songs, this.state.counter);
       addSongToStorage(nextSong);
 
+      this.stopTimer();
+
       this.setState({ fetchedSong: nextSong });
     } else {
-      
+
       // putScores(score);
       history.push('/resultspage');
     }
@@ -51,9 +81,9 @@ export default class SongPage extends Component {
     if (userInput === fetchedSong[0].title) {
       let points = score + 100;
       this.setState({ score: points });
-      
+
       putScores(points);
-      
+
       this.handleClick();
 
     } else {
@@ -64,7 +94,7 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong, counter } = this.state;
+    const { fetchedSong, counter, timeRemaining } = this.state;
 
     return (
       <div>
@@ -76,6 +106,7 @@ export default class SongPage extends Component {
           {fetchedSong &&
             <audio
               controls
+              onPlay={this.handlePlay}
               src={fetchedSong[0].song}>
               Your browser does not support the
               <code>audio</code> element.
@@ -90,8 +121,8 @@ export default class SongPage extends Component {
           <input onChange={this.handleChange} />
           <button>Guess</button>
         </form>
+        <div>Time Remaining: {timeRemaining === -1 || timeRemaining}</div>
         <button onClick={this.handleClick}>Skip It</button>
-        <Timer></Timer>
       </div >
     );
   }
