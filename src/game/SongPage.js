@@ -13,6 +13,7 @@ export default class SongPage extends Component {
     counter: -1,
     userInput: '',
     score: 0,
+    volume: .3,
 
     startTime: null,
     allowedTime: 15,
@@ -26,6 +27,8 @@ export default class SongPage extends Component {
 
     const currentSong = await getSong(this.state.songs, this.state.counter);
     this.setState({ fetchedSong: currentSong }, () => this.handleClick());
+
+    this.player.volume = 0.2;
   }
 
   startTimer() {
@@ -33,11 +36,14 @@ export default class SongPage extends Component {
     const interval = setInterval(() => {
       const elapsedTime = new Date() - this.state.startTime;
       const timeRemaining = Math.round(((allowedTime * 1000) - elapsedTime) / 1000);
-      this.setState({ timeRemaining });
-      if (timeRemaining <= 0) {
-        this.stopTimer();
-        alert('Out of Time!');
-      }
+      this.setState({ timeRemaining }, () => {
+        if (timeRemaining < 0) {
+          this.stopTimer();
+          alert('Out of Time!');
+          this.handleClick();
+        }
+      });
+
     }, 1000);
     this.setState({ interval, startTime: new Date(), timeRemaining: allowedTime });
   }
@@ -48,6 +54,7 @@ export default class SongPage extends Component {
   }
 
   handlePlay = () => {
+    this.player.play();
     this.startTimer();
   };
 
@@ -92,9 +99,14 @@ export default class SongPage extends Component {
     this.setState({});
   }
 
+  handleVolume = ({ target }) => {
+    this.player.volume = Number(target.value);
+    // this.setState({ volume: Number(target.value) });
+  }
+
   render() {
 
-    const { fetchedSong, counter, timeRemaining } = this.state;
+    const { fetchedSong, counter, timeRemaining, volume } = this.state;
 
     return (
       <div>
@@ -105,15 +117,16 @@ export default class SongPage extends Component {
 
           {fetchedSong &&
             <audio
-              controls
-              onPlay={this.handlePlay}
+              volume={volume}
+              ref={player => this.player = player}
               src={fetchedSong[0].song}>
               Your browser does not support the
               <code>audio</code> element.
             </audio>
 
           }
-
+          <button onClick={this.handlePlay}>Let's do this!</button>
+          <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
         </figure>
         {/* We need to listen for song onended.*/}
         {/* On onended, load the next song.*/}
