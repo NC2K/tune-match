@@ -15,12 +15,13 @@ export default class SongPage extends Component {
 
   async componentDidMount() {
 
-
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
     this.setState({ songs: parsedSongs });
     // console.log(this.state.songs);   
     // setTimeout(async() => {  
     const currentSong = await getSong(this.state.songs, this.state.counter);
+    const stringySong = JSON.stringify(currentSong);
+    localStorage.setItem('SONGSDATA', stringySong)
     this.setState({ fetchedSong: currentSong });
     // }, 2000);
   }
