@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Timer from '../timer/Timer';
 
-import { getSong } from '../utils/server-utils';
+import { getSong, putScores } from '../utils/server-utils';
 import { addSongToStorage } from '../utils/utils';
 import './SongPage.css';
 
@@ -34,7 +34,8 @@ export default class SongPage extends Component {
 
       this.setState({ fetchedSong: nextSong });
     } else {
-
+      
+      // putScores(score);
       history.push('/resultspage');
     }
   };
@@ -50,8 +51,11 @@ export default class SongPage extends Component {
     if (userInput === fetchedSong[0].title) {
       let points = score + 100;
       this.setState({ score: points });
-      console.log('Score', points);
+      
+      putScores(points);
+      
       this.handleClick();
+
     } else {
       console.log('WROOONNNGG');
     }

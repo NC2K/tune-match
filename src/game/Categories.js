@@ -9,7 +9,8 @@ export default class InitPage extends Component {
     catCount: 0,
     endButton: false,
     cat: '',
-    songs: []
+    songs: [],
+    gameId: undefined
   }
 
   handleSwitch = () => {
@@ -22,24 +23,34 @@ export default class InitPage extends Component {
     this.setState({ cat: e.target.value });
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     try {
       e.preventDefault();
-      const { cat, songs } = this.state;
+      const { cat } = this.state;
       const { history } = this.props;
       this.setState.catCount++;
 
       const catQueryList = makeQueryList(categories[cat].songs);
 
-      const stringyCat = JSON.stringify(catQueryList);
-      localStorage.setItem('SONGS', stringyCat);
+      const stringyQueryList = JSON.stringify(catQueryList);
+      localStorage.setItem('SONGS', stringyQueryList);
+
+      const stringyCat = JSON.stringify(categories[cat].category);
+      localStorage.setItem('CATEGORY', stringyCat);
 
       const score = {
         cat1: categories[cat].category,
-        total: 0
+        total: 0,
+        uName: this.props.uName
       };
-      postScores(score);
 
+      localStorage.removeItem('SONGSDATA');
+
+      const gameInstance = await postScores(score);
+
+      this.setState({ gameId: gameInstance.id });
+      const stringyGameId = JSON.stringify(this.state.gameId);
+      localStorage.setItem('GAMEID', stringyGameId);
       history.push('/songpage');
     }
 

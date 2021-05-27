@@ -60,7 +60,7 @@ class App extends Component {
 
               <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <Categories {...routerProps} />)}
+                  <Categories uName={this.state.userName} {...routerProps} />)}
               />
 
               <Route path="/songpage" exact={true}

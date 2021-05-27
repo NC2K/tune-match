@@ -51,11 +51,14 @@ export async function postScores(score) {
 }
 
 export async function putScores(score) {
+  const parsedGameId = JSON.parse(localStorage.getItem('GAMEID'));
+  const parsedCategory = JSON.parse(localStorage.getItem('CATEGORY'));
   const response = await request
-    .put(`/api/scores/${score.id}`)
-    .ok()
+    .put(`/api/scores/${parsedGameId}`)
+    .ok(res => res.status < 500)
     .set('Authorization', window.localStorage.getItem('TOKEN'))
-    .send(score);
+    .send({ cat1: parsedCategory, total: score });
 
   return response.body;
 }
+

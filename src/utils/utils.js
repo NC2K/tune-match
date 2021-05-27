@@ -46,3 +46,10 @@ export function addSongToStorage(newSong){
   storedSongs.push(newSong);
   setSong(storedSongs);
 }
+
+// export function holdScore(category, score) {
+//   const score = {
+//     cat1: category,
+//     total: score
+//   };
+// }
