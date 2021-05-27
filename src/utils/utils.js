@@ -1,3 +1,5 @@
+import { get } from "superagent";
+
 export function randomNum(category) {
   return Math.floor(Math.random() * category.length);
 }
@@ -20,4 +22,27 @@ export function makeQueryList(category) {
     songSearches.push(category[numArr[i]]);
   }
   return songSearches;
+}
+
+export function getSongFromStorage() {
+  const storedSongs = localStorage.getItem('SONGSDATA');
+  const receivedSongs = JSON.parse(storedSongs);
+
+  if (receivedSongs) {
+    return receivedSongs;
+  } else {
+    return [];
+  }
+}
+
+export function setSong(receivedSongs){
+  const storedSongs = JSON.stringify(receivedSongs);
+  localStorage.setItem('SONGSDATA', storedSongs);
+}
+
+export function addSongToStorage(newSong){
+
+  const storedSongs = getSongFromStorage();
+  storedSongs.push(newSong);
+  setSong(storedSongs);
 }
