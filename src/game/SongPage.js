@@ -126,7 +126,7 @@ export default class SongPage extends Component {
           }
           <button onClick={this.handlePlay}>Let's do this!</button>
           <div className="volume">
-            <img src="volume-icon.png" />
+            <img src="volume-icon.png" alt="volume" />
             <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
           </div>
         </div>
