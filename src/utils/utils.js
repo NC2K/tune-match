@@ -1,4 +1,4 @@
-import { get } from "superagent";
+
 
 export function randomNum(category) {
   return Math.floor(Math.random() * category.length);
