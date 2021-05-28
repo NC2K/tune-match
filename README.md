@@ -63,6 +63,7 @@ To run this on your own computer
       'You+Send+Me+Sam+Cooke'
     ]
   }]``` 
+- PUT '/api/scores/:id' updates score in database upon correct answer
 
 ### Database setup
 Model your database as follows:
