@@ -5,13 +5,22 @@
   font-family: "Titan One", cursive;
 }
 
-.Categories p {
+.Categories h2 {
   display: flex;
   justify-content: center;
   align-items: center;
   color:pink;
   font-size: 50px;
   margin: 30px;
+}
+
+.Categories p {
+  color: pink;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  text-align: center;
+  
 }
 
 .Categories .catWrapper {
@@ -58,6 +67,11 @@
 }
 
 .Categories button {
+  padding: 10px;
+  
+  background-color: pink;
+  color: black;
+  border-radius: 10px;
   font-size: x-large;
   margin: 30px;
   cursor: pointer;

@@ -65,7 +65,8 @@ export default class InitPage extends Component {
     return (
       <div className='Categories'>
         <div className="catWrapper">
-          <p>Choose A Category!</p>
+          <h2>Choose A Category!</h2>
+          <p>Think you have an ear for music?  Answer 10 questions based on the tunes provided. <br/> Name the tune within 15 seconds and walk away with 100 points.  Be careful not to run out of time!</p>
           <form className='categoryForm' onSubmit={this.handleSubmit}>
             <ul className='categoryList'>
               {categories.map((category, i) => (
