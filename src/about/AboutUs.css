@@ -4,13 +4,16 @@
   justify-content: center;
 }
 
+.AboutUs h1 {
+  font-size: 100px;
+  text-align: center;
+}
+
 .AboutUs .bios {
   display: grid;
   justify-content: center;
   align-items: center;
   margin: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 
 .AboutUs .avatar {
@@ -22,24 +25,32 @@
 }
 
 .AboutUs .bio-media {
-  
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.AboutUs .profile {
+.AboutUs .bios .profile {
   margin: 20px;
   background-color: white;
   color: black;
   display: flex;
+  border: 2px solid black;
   border-radius: 30px;
 }
 
 .AboutUs .links {
   margin: 10px;
   display: flex;
+  flex-direction: row;
+}
+
+.AboutUs .links a {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
   width: 75px;
-  height: 75px;
 }
 
 .AboutUs .blurb {
