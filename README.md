@@ -1,6 +1,6 @@
 # Tune Match
 by...
-  - Kalan Proudmoore
+  - Kalan Prudhomme
   - Katherine Tam
   - Nick Day
   - Casey Cameron
