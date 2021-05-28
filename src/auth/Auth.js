@@ -44,73 +44,75 @@ export default class Auth extends Component {
     const { name, email, avatar, password, isSignUp, error } = this.state;
 
     return (
-      <form className="Auth" onSubmit={this.handleSubmit}>
-        {isSignUp && <p>
-          <label>
-            <span>Username:</span>
-            <input name='name' value={name} required onChange={this.handleChange}/>
-          </label>
-        </p>}
+      <div className="Auth">
+        <form className="form glow" onSubmit={this.handleSubmit}>
+          {isSignUp && <p>
+            <label>
+              <div>Username:</div>
+              <input name='name' value={name} required onChange={this.handleChange}/>
+            </label>
+          </p>}
 
-        <p>
-          <label>
-            <span>Email:</span>
-            <input name='email' value={email} required onChange={this.handleChange}/>
-          </label>
-        </p>
+          <p>
+            <label>
+              <div>Email:</div>
+              <input name='email' value={email} required onChange={this.handleChange}/>
+            </label>
+          </p>
 
-        {isSignUp && <p>
-          <div>Select an Avatar:</div>
-          <fieldset className='Avatar'> {/*Set avatar up like radio button or drop down menu */}
-            <label>
-              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-              <img src='/wizard.png' alt='Wizard'/>
-            </label>
-            <label>
-              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-              <img src='/dog.png' alt='Doggo'/>
-            </label>
-            <label>
-              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-              <img src='/beans.png' alt='Beans'/>
-            </label>
-            <label>
-              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-              <img src='/robot.png' alt='Robot'/>
-            </label>
-            <label>
-              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-              <img src='/boombox.png' alt='Boombox'/>
-            </label>
-            <label>
-              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-              <img src='/monke.png' alt='Ape'/>
-            </label>
-            <label>
-              <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-              <img src='/laptop.png' alt='Laptop'/>
-            </label>
-          </fieldset>
-        </p>}
+          {isSignUp && <p>
+            <div>Select an Avatar:</div>
+            <fieldset className='Avatar'> {/*Set avatar up like radio button or drop down menu */}
+              <label>
+                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                <img src='/wizard.png' alt='Wizard'/>
+              </label>
+              <label>
+                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                <img src='/dog.png' alt='Doggo'/>
+              </label>
+              <label>
+                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                <img src='/beans.png' alt='Beans'/>
+              </label>
+              <label>
+                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                <img src='/robot.png' alt='Robot'/>
+              </label>
+              <label>
+                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                <img src='/boombox.png' alt='Boombox'/>
+              </label>
+              <label>
+                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                <img src='/monke.png' alt='Ape'/>
+              </label>
+              <label>
+                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                <img src='/laptop.png' alt='Laptop'/>
+              </label>
+            </fieldset>
+          </p>}
 
-        <p>
-          <label>
-            <span>Password:</span>
-            <input name='password' value={password} type='password' required onChange={this.handleChange} />
-          </label>
-        </p>
+          <p>
+            <label>
+              <div>Password:</div>
+              <input name='password' value={password} type='password' required onChange={this.handleChange} />
+            </label>
+          </p>
 
-        <p>
-          <button>{isSignUp ? 'Sign Up' : 'Log In'}</button>
-        </p>
+          <p>
+            <button>{isSignUp ? 'Sign Up' : 'Log In'}</button>
+          </p>
 
-        <p>
-          <button className='switch' type='button' onClick={this.handleSwitch}>
-            {isSignUp ? 'Have an account? Log in here.' : 'Need an account? Create account here.'}
-          </button>
-        </p>
-        {error && <p>{error}</p>}
-      </form>
+          <p>
+            <button className='switch' type='button' onClick={this.handleSwitch}>
+              {isSignUp ? 'Have an account? Log in here.' : 'Need an account? Create account here.'}
+            </button>
+          </p>
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
     );
   }
 
