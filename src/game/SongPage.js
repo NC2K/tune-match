@@ -13,7 +13,8 @@ export default class SongPage extends Component {
     userInput: '',
     score: 0,
     volume: .3,
-
+    feedback: '',
+    //timer state
     startTime: null,
     allowedTime: 15,
     interval: 0,
@@ -60,20 +61,23 @@ export default class SongPage extends Component {
   handleClick = async () => {
     const { counter } = this.state;
     const { history } = this.props;
-
+    const form = document.getElementById('form');
+    
     if (counter < 9) {
       this.state.counter++;
       const nextSong = await getSong(this.state.songs, this.state.counter);
       addSongToStorage(nextSong);
-
+      
       this.stopTimer();
 
       this.setState({ fetchedSong: nextSong });
     } else {
-
+      
       // putScores(score);
       history.push('/resultspage');
     }
+    this.setState({});
+    form.reset();
   };
 
   handleChange = ({ target }) => {
@@ -83,19 +87,22 @@ export default class SongPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { userInput, fetchedSong, score } = this.state;
+    const form = document.getElementById('form');
 
     if (checkAnswer(userInput, fetchedSong[0].title)) {
       let points = score + 100;
-      this.setState({ score: points });
-      console.log('Right!');
+      this.setState({ score: points, feedback: 'Correct!' });
+      
       putScores(points);
-
+      
       this.handleClick();
-
+      console.log('look here', this.form);
+      
     } else {
-      console.log('WROOONNNGG');
+      this.setState({ feedback: 'Incorrect!' });
     }
     this.setState({});
+    form.reset();
   }
 
   handleVolume = ({ target }) => {
@@ -105,16 +112,26 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong, counter, timeRemaining, volume } = this.state;
+    const { fetchedSong, counter, timeRemaining, volume, score, feedback } = this.state;
 
     return (
       <div className="SongPage color-backdrop">
-        <div className="questionCounter">Question {counter + 1}/10</div>
-        <div className="audioGroup">
 
-          <p>What is that song?</p>
+        <section className="Score">
+          <div>
+            Score:
+            { score }
+          </div>
 
-          {fetchedSong &&
+        </section>
+
+        <section className="SongGame">
+          <div className="questionCounter">Question {counter + 1}/10</div>
+          <div className="audioGroup">
+
+            <p>What is that song?</p>
+
+            {fetchedSong &&
             <audio
               volume={volume}
               ref={player => this.player = player}
@@ -123,22 +140,30 @@ export default class SongPage extends Component {
               <code>audio</code> element.
             </audio>
 
-          }
-          <button onClick={this.handlePlay}>Let's do this!</button>
-          <div className="volume">
-            <img src="volume-icon.png" alt="volume" />
-            <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
+            }
+            <button onClick={this.handlePlay}>Let's do this!</button>
+            <div className="volume">
+              <img src="volume-icon.png" alt="volume" />
+              <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
+            </div>
           </div>
-        </div>
-        {/* We need to listen for song onended.*/}
-        {/* On onended, load the next song.*/}
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} />
-          <button>Guess</button>
-        </form>
-        <div>Time Remaining: {timeRemaining === -1 || timeRemaining}</div>
-        <button onClick={this.handleClick}>Skip It</button>
-      </div >
+          {/* We need to listen for song onended.*/}
+          {/* On onended, load the next song.*/}
+          <form onSubmit={this.handleSubmit} id="form">
+            <input onChange={this.handleChange}/>
+            <button>Guess</button>
+          </form>
+          <div>Time Remaining: {timeRemaining === -1 || timeRemaining}</div>
+          <button onClick={this.handleClick}>Skip It</button>
+        </section>
+
+        <section className="RightOrWrong">
+          <div>
+            { feedback }
+          </div>
+
+        </section>
+      </div>
     );
   }
 
