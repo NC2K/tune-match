@@ -19,6 +19,11 @@
 }
 
 .Header nav * {
-  margin:9px;
+  margin: 10px;
   font-family: "Titan One", cursive;
+}
+
+.Header a {
+  color: pink;
+  font-size: x-large;
 }

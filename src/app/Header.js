@@ -19,9 +19,11 @@ class Header extends Component {
     let nav = '';
 
     if (isLoggedIn) {
-      nav = <nav>
+      nav = 
+      <nav>
         <NavLink className='glow' to="/">Home</NavLink>
         <NavLink className='glow' to="categories">Play game</NavLink>
+        <NavLink className='glow' to="resultspage">Collection</NavLink>
         <NavLink className='glow' to="leaderboard">Leaderboard</NavLink>
         <NavLink className='glow' to="aboutus">About Us</NavLink>
       </nav>;
