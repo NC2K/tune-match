@@ -9,7 +9,7 @@
   padding: 20px;
 }
 
-.songInfo {
+.SongResultsLi .songInfo {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -17,18 +17,18 @@
   justify-content: center;
 }
 
-h3 {
+.SongResultsLi h3 {
   font-weight: bold;
 }
 
-img {
+.SongResultsLi img {
   display: flex;
   align-content: center;
   justify-content: center;
   max-width: 100%;
 }
 
-audio {
+.SongResultsLi audio {
   display: flex;
   align-content: center;
   justify-content: center;

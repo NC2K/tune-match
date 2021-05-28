@@ -22,18 +22,18 @@
   cursor: pointer;
 }
 
-.Avatar fieldset{
+.Auth .Avatar fieldset{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.Avatar input {
+.Auth .Avatar input {
   display: none;
 }
 
-input:checked + img {
+.Auth input:checked + img {
   filter: drop-shadow(5px 5px 5px hsl(315, 55%, 65%));
 }
 
@@ -49,11 +49,11 @@ input:checked + img {
   transform: scale(1.5);
 }
 
-button {
+.Auth button {
   cursor: pointer;
 }
 
-button switch {
+.Auth button .switch {
   text-decoration: none;
   color: black;
 }

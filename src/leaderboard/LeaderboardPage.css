@@ -2,7 +2,7 @@
   height: 100vh;
 }
 
-.resultsHeader {
+.LeaderboardPage .resultsHeader {
   padding: 5px;
   text-align: center;
   display: grid;
@@ -12,11 +12,9 @@
   border-top-right-radius: 5px;
   color: black;
   background-color: red;
- 
-  
 }
 
-.resultsWrapper {
+.LeaderboardPage .resultsWrapper {
   padding: 5px;
   text-align: center;
   display: grid;
@@ -24,6 +22,5 @@
   background-color: white;
   border: 1px solid black;
   color: black;
-
 }
 

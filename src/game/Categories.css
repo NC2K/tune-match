@@ -3,50 +3,53 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 } 
 
-.selection-form {
+.CategoryPage .selection-form {
   height: 100px;
   width: 100px;
 }
 
-.CategoryList input {
+.CategoryPage .CategoryList input {
   display: none;
 }
 
 
-.CategoryList li {
+
+
+
+.CategoryPage .CategoryList li {
   margin: 10px;
 }
 
-.radio-tile-group {
+.CategoryPage .radio-tile-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-  .radio-tile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      border: 2px solid plum;
-      border-radius: 5px;
-      padding: 1rem;
-      transition: transform 300ms ease;
-      cursor: pointer;
-    }
+.CategoryPage .radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid plum;
+  border-radius: 5px;
+  padding: 1rem;
+  transition: transform 300ms ease;
+  cursor: pointer;
+}
 
-     .radio-tile-label {
-      text-align: center;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      color: pink;
-      background-color: black;
-    }
+.CategoryPage .radio-tile-label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: pink;
+  background-color: black;
+}
 
   
   
