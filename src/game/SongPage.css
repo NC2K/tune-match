@@ -7,11 +7,19 @@
   src: url('../fonts/CopaseticNF.ttf') format('ttf');
 }
 
-.SongPage .wrapper {
+.SongPage .gameWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 150px;
+}
+
+.SongPage .stereo-base {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
-  padding: 0px;
-
+  justify-content: center;
+  align-items: center;
 }
 
 .SongPage {
@@ -25,6 +33,7 @@
   background-image: url('../stereo-speaker.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,13 +41,15 @@
   font-size: 40px;
   color: white;
   text-align: center;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
 
 .SongPage .RightOrWrong {
   background-image: url('../stereo-speaker.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +58,8 @@
   font-weight: bold;
   color: white;
   text-align: center;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
 
 .SongPage .stereo-handle {
@@ -83,6 +95,12 @@
   justify-content: center;
 }
 
+.SongPage button {
+  margin: 10px;
+  font-size: large;
+  cursor: pointer;
+
+}
 
 .SongPage .audioGroup {
   display: flex;
@@ -112,23 +130,16 @@
   border-radius: 20px;
 }
 
-.SongPage .timer {
-  margin: 20px;
-}
-
 .SongPage .userInput {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.SongPage .guessButton {
-  margin: 10px;
-  width: 60px;
+  font-size: x-large;
 }
 
 .SongPage p {
   margin: 10px;
   font-size: large;
+  font-size: x-large;
 }

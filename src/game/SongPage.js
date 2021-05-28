@@ -18,7 +18,7 @@ export default class SongPage extends Component {
     startTime: null,
     allowedTime: 15,
     interval: 0,
-    timeRemaining: -1
+    timeRemaining: -1,
   }
 
   async componentDidMount() {
@@ -97,7 +97,7 @@ export default class SongPage extends Component {
       
       this.handleClick();
       console.log('look here', this.form);
-      
+    
     } else {
       this.setState({ feedback: 'Incorrect!' });
     }
@@ -112,57 +112,61 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong, counter, timeRemaining, volume, score, feedback } = this.state;
+    const { fetchedSong, counter, timeRemaining, volume, score, feedback} = this.state;
 
     return (
       <div className="SongPage">
-        <img className="stereo-handle" src="stereo-handle.png" alt="stereo handle"/>
-        <div className="wrapper color-backdrop">
-          <section className="Score">
-            <div>
-              <div>Score:</div>
-              { score }
-            </div>
-
-          </section>
-
-          <section className="SongGame">
-            <div className="questionCounter">Question {counter + 1}/10</div>
-            <div className="audioGroup">
-
-              <p>What is that song?</p>
-
-              {fetchedSong &&
-              <audio
-                volume={volume}
-                ref={player => this.player = player}
-                src={fetchedSong[0].song}>
-                Your browser does not support the
-                <code>audio</code> element.
-              </audio>
-
-              }
-              <button onClick={this.handlePlay}>Let's do this!</button>
-              <div className="volume">
-                <img src="volume-icon.png" alt="volume" />
-                <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
+        <div className="gameWrapper">
+          <img className="stereo-handle" src="stereo-handle.png" alt="stereo handle"/>
+          <div className="stereo-base color-backdrop">
+            <section className="Score">
+              <div>
+                <div>Score:</div>
+                { score }
               </div>
-            </div>
-            {/* We need to listen for song onended.*/}
-            {/* On onended, load the next song.*/}
-            <form className="userInput" onSubmit={this.handleSubmit} id="form">
-              <input onChange={this.handleChange}/>
-              <button className="guessButton">Guess</button>
-            </form>
-            <div className="timer">Time Remaining: {timeRemaining === -1 || timeRemaining}</div>
-            <button onClick={this.handleClick}>Skip It</button>
-          </section>
 
-          <section className="RightOrWrong">
-            <div>
-              {feedback}
-            </div>
-          </section>
+            </section>
+
+            <section className="SongGame">
+              <div className="questionCounter">Question {counter + 1}/10</div>
+              <div className="audioGroup">
+
+                <p>What is that song?</p>
+
+                {fetchedSong &&
+                <audio
+                  volume={volume}
+                  ref={player => this.player = player}
+                  src={fetchedSong[0].song}>
+                  Your browser does not support the
+                  <code>audio</code> element.
+                </audio>
+                }
+
+                  <button onClick={this.handlePlay}>Start Song!</button>
+          
+
+                <div className="volume">
+                  <img src="volume-icon.png" alt="volume" />
+                  <input type="range" min="0" max="1" step="0.1" defaultValue="0.2" onChange={this.handleVolume}></input>
+                </div>
+              </div>
+              {/* We need to listen for song onended.*/}
+              {/* On onended, load the next song.*/}
+              <form className="userInput" onSubmit={this.handleSubmit} id="form">
+                <input onChange={this.handleChange} />
+                <button className="guessButton">Guess</button>
+              </form>
+              <p className="timer">Time Remaining: {timeRemaining === -1 || timeRemaining}</p>
+              <button onClick={this.handleClick}>Skip It</button>
+            </section>
+
+            <section className="RightOrWrong">
+              <div>
+                {feedback}
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     );
