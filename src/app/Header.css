@@ -9,37 +9,18 @@
   justify-content: space-between;
   padding: 20px;
   border-bottom: 1px solid lightgray;
-  background-color: black;
+  background-color: rgba(19, 19, 19, 0.7);;
 }
 
-/* Sourced from https://www.w3schools.com/howto/howto_css_glowing_text.asp */
-.glow {
-  font-size: 2rem;
-  font-family: battlelines;
-  color: #fff;
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  }
+h1 {
+  font-family: "Titan One", cursive;
+  color: white;
+  font-size: 30px;
 }
 
   
 
 nav * {
   margin:9px;
-  color: pink;
-  font-family: battlelines;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
+  font-family: "Titan One", cursive;
 }

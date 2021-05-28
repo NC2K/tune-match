@@ -37,7 +37,7 @@ class Header extends Component {
     return (
       <header className="Header">
 
-        <h1 className='glow'>Tune Match</h1>
+        <h1>Tune Match</h1>
         <nav>{nav}</nav>
       </header>
     );

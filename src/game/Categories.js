@@ -66,14 +66,19 @@ export default class InitPage extends Component {
       <div>
         Choose A Category!
         <form className='selection-form' onSubmit={this.handleSubmit}>
+          
           <ul className='CategoryList'>
             {categories.map((category, i) => (
-              <li>
-                <label>
-                  {category.category}
-                  <input type='radio' name='category' value={i} onChange={this.onValueChange} />
-                </label>
-              </li>
+              <div class="radio-tile-group">
+                <div class="radio-tile">
+                  <li>
+                    <label>
+                      {category.category}
+                      <input type='radio' name='category' value={i} onChange={this.onValueChange} />
+                    </label>
+                  </li>
+                </div>
+              </div>
             ))}
           </ul>
           <p>
