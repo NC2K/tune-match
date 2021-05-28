@@ -27,7 +27,7 @@ export default class Home extends Component {
     return (
 
       <div className="Home">
-        <div className="wrapper">
+        <div className="homeWrapper">
           <span>T</span>
           <span>U</span>
           <span>N</span>

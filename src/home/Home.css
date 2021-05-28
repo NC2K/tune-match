@@ -23,17 +23,17 @@ a {
   font-family: "Titan One", cursive;
 }
 
-p {
+.Home p {
 	margin-top: 250px;
 }
 
 /* imported from https://codepen.io/faria09/pen/vYGZVgW */
 @import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
- .wrapper {
+ .homeWrapper {
 	 width: 100vw;
 	 text-align: center;
 }
- .wrapper span {
+ .homeWrapper span {
 	 -webkit-text-stroke-width: 1.25px;
 	 -webkit-text-stroke-color: #000;
 	 font-size: 100px;
@@ -103,6 +103,7 @@ p {
 		 transform: scale(0.3, 0.3);
 	}
 }
+
  @media screen and (max-width: 576px) {
 	 .wrapper span {
 		 font-size: 50px;
