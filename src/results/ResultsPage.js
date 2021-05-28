@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SongResultsUl from './SongResultsUl';
+import './ResultsPage.css';
 
 export default class ResultsPage extends Component {
   state = {
@@ -18,7 +19,10 @@ export default class ResultsPage extends Component {
 
     return (
       <div className="ResultsPage">
-        <SongResultsUl fetchedSongArray={fetchedSongArray} />
+        <div className="resultsWrapper">
+          <h1>Collection Last Played</h1>
+          <SongResultsUl fetchedSongArray={fetchedSongArray} />
+        </div>
       </div>
     );
   }

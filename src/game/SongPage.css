@@ -7,24 +7,35 @@
   src: url('../fonts/CopaseticNF.ttf') format('ttf');
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  padding: 0px;
-
-}
 
 .SongPage {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  font-family: "Titan One", cursive;
 }
 
-.Score {
+.SongPage .gameWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+}
+
+.SongPage .stereo-base {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.SongPage .Score {
   background-image: url('../stereo-speaker.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,13 +43,15 @@
   font-size: 40px;
   color: white;
   text-align: center;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
 
-.RightOrWrong {
+.SongPage .RightOrWrong {
   background-image: url('../stereo-speaker.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,15 +60,16 @@
   font-weight: bold;
   color: white;
   text-align: center;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
 
-.stereo-handle {
+.SongPage .stereo-handle {
   width: 600px;
   margin: 0px;;
 }
 
-.color-backdrop {
+.SongPage .color-backdrop {
   background: linear-gradient(45deg, var(--active-color) 20%, transparent 100%) no-repeat;
   animation: colorChange 10s alternate infinite;
   padding: 50px;
@@ -76,59 +90,60 @@
   }
 }
 
-.SongGame {
+.SongPage .SongGame {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.SongPage button {
+  margin: 10px;
+  font-size: large;
+  cursor: pointer;
 
-.audioGroup {
+}
+
+.SongPage .audioGroup {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.questionCounter {
+.SongPage .questionCounter {
   font-weight: bold;
   font-size:xx-large;
 }
 
-.volume {
+.SongPage .volume {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
 }
 
-img {
+.SongPage img {
   width: 40px;
 }
 
-input {
+.SongPage input {
   height: 30px;
   border-radius: 20px;
+  text-align: center;
+  font-size: x-large;
 }
 
-.timer {
-  margin: 20px;
-}
-
-.userInput {
+.SongPage .userInput {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: x-large;
 }
 
-.guessButton {
-  margin: 10px;
-  width: 60px;
-}
-
-p {
+.SongPage p {
   margin: 10px;
   font-size: large;
+  font-size: x-large;
 }

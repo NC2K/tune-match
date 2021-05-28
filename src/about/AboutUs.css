@@ -4,39 +4,73 @@
   justify-content: center;
 }
 
-.bios {
+.AboutUs h1 {
+  text-align: center;
+  color: pink;
+  font-size: 50px;
+  margin-top: 50px;
+  font-family: "Titan One", cursive;
+}
+
+.AboutUs .bios {
   display: grid;
-  
   justify-content: center;
   align-items: center;
-  margin: 20px;
-  border: 1px solid black;
-  border-radius: 5px;
+  margin: 10px;
 }
 
-.avatar {
-  color: blue;
-  display: flex;
+.AboutUs .avatar {
+  padding: 5%;
+  object-fit: cover;
+  width: 150px;
+  height: 200px;
+  border-radius: 30px;
 }
 
-.bio-media {
+.AboutUs .bio-media {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-.profile {
-  width: 250px;
-  height: 300px;
-}
-
-.links {
+.AboutUs .profile {
+  margin: 10px;
+  background-color: white;
+  color: black;
   display: flex;
-  width: 75px;
-  height: 75px;
+  border: 2px solid black;
+  border-radius: 30px;
 }
 
-main {
-  padding: 20px;
+.AboutUs .links {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.AboutUs .links a {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+}
+
+.AboutUs .blurb {
+  width: 500px;
+  margin: 10px;
+  font-size: larger;
+  font-style: italic;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.AboutUs .blurb h2 {
+  margin: 10px;
+  font-weight: bolder;
+  font-size: 25px;
 }

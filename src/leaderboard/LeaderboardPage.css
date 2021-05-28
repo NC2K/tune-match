@@ -1,42 +1,43 @@
 .LeaderboardPage {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.resultsHeader {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  text-shadow: 2px 2px 5px gray;
-  border: 1px solid black;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.resultsWrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: 1px solid black;
-}
-
-.LeaderboardPage {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
+.LeaderboardPage .scoresWrapper {
+  width: 500px;
+  margin: 30px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-.resultsWrapper div:hover {background-color: #ddd;}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
+.LeaderboardPage p{
+  text-align: center;
+  color: pink;
+  font-size: 50px;
+  margin: 20px;
+  font-family: "Titan One", cursive;
 }
+
+.LeaderboardPage .resultsHeader {
+  padding: 5px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 3px solid pink;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: black;
+  background-color: pink;
+  font-weight: bold;
+}
+
+.LeaderboardPage .resultsWrapper {
+  padding: 5px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+

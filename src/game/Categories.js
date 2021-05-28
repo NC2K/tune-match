@@ -63,26 +63,27 @@ export default class InitPage extends Component {
     const { endButton } = this.state;
 
     return (
-      <div>
-        Choose A Category!
-        <form className='selection-form' onSubmit={this.handleSubmit}>
-          <ul className='CategoryList'>
-            {categories.map((category, i) => (
-              <li>
-                <label>
-                  {category.category}
-                  <input type='radio' name='category' value={i} onChange={this.onValueChange} />
-                </label>
-              </li>
-            ))}
-          </ul>
-          <p>
+      <div className='Categories'>
+        <div className="catWrapper">
+          <p>Choose A Category!</p>
+          <form className='categoryForm' onSubmit={this.handleSubmit}>
+            <ul className='categoryList'>
+              {categories.map((category, i) => (
+                <li>
+                  <label>
+                    <input type='radio' name='category' value={i} onChange={this.onValueChange} />
+                    <div className="category">
+                      {category.category}
+                    </div>
+                  </label>
+                </li>
+              ))}
+            </ul>
             <button>Start</button>
-          </p>
-          {endButton && <p>
-            <button type='button'>End Game</button>
-          </p>}
-        </form>
+            {endButton &&
+            <button type='button'>End Game</button>}
+          </form>
+        </div>
       </div>
     );
   }
