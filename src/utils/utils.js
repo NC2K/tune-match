@@ -47,12 +47,19 @@ export function addSongToStorage(newSong) {
 }
 
 export function checkAnswer(userInput, fetchedSong) {
+
   const songTitle = fetchedSong.toLowerCase();
-  let matchingTerms = songTitle.split(' ');
-  let newTerms = matchingTerms.filter(word => word.length > 2 && !word.includes('.', '!'));
-  console.log(newTerms);
+  
+  //splits song title into an array, implementing regex rule (removes two letter characters and punctuation)
+  const matchingTerms = songTitle.split(' ');
+  const newTerms = matchingTerms.filter(word => word.length > 2 && !word.includes('.', '!'));
+ 
   userInput = userInput.toLowerCase();
+
+  //splits user input into an array
   const newInput = userInput.split(' ');
+
+  //compares user input indexes [0-2] with correct answer or exact match
   if (newTerms.includes(newInput[0]) || newTerms.includes(newInput[1]) ||
     newTerms.includes(newInput[2]) || userInput === songTitle)
     return true;

@@ -8,7 +8,7 @@ export default class SongResultsUl extends Component {
 
     return (
       <ul className="SongList">
-        {songs.map((song, index) => (
+        {songs.map((song) => (
           <SongResultsLi key={song.title} song={song} />
         ))}
       </ul>
