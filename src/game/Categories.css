@@ -13,9 +13,6 @@
 }
 
 
-
-
-
 .CategoryList li {
   margin: 10px;
 }
@@ -48,7 +45,7 @@
       letter-spacing: 1px;
       cursor: pointer;
       color: pink;
-        background-color: black;
+      background-color: black;
     }
 
   
