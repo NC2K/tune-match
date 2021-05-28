@@ -80,11 +80,6 @@ class App extends Component {
                   <AboutUs {...routerProps} />)}
               />
 
-              <Route path="/resources/:id"
-                render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
-                )}
-              />
 
               <Redirect to="/" />
 
