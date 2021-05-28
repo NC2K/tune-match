@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Header />
+          <Header isLoggedIn={!!this.state.token} />
           <main>
 
             <Switch>
