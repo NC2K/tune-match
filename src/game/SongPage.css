@@ -1,50 +1,86 @@
+* {
+  box-sizing: border-box;
+}
 
 @font-face {
   font-family: copasetic;
   src: url('../fonts/CopaseticNF.ttf') format('ttf');
 }
 
-li {
-  display: block;
-}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  padding: 0px;
 
-.question {
-  font-family: copasetic;
-  font-size: 2rem;
-}
-
-.Score {
-  font-family: cursive;
-  font-size: 50px;
-}
-
-.RightOrWrong {
-  text-transform: uppercase;
-  font-size: 40px;
-}
-
-
-* {
-  box-sizing: border-box;
 }
 
 .SongPage {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 100px;
+}
+
+.Score {
+  background-image: url('../stereo-speaker.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  height: 250px;
+}
+
+.RightOrWrong {
+  background-image: url('../stereo-speaker.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  height: 250px;
+}
+
+.stereo-handle {
+  width: 600px;
+  margin: 0px;;
+}
+
+.color-backdrop {
+  background: linear-gradient(45deg, var(--active-color) 20%, transparent 100%) no-repeat;
+  animation: colorChange 10s alternate infinite;
+  padding: 50px;
+  margin: 0px;
   border: 2px black solid;
   border-radius: 50px;
+  width: 1000px;
   --white: #fff;
   --active-color: #00aeb0;
+}
+
+@keyframes colorChange {
+  from {
+    filter: hue-rotate(0deg);
+  }
+	to {
+    filter: hue-rotate(360deg);
+  }
 }
 
 .SongGame {
   display: flex;
   flex-direction: column;
-  
   align-items: center;
+  justify-content: center;
 }
 
 
@@ -57,30 +93,42 @@ li {
 
 .questionCounter {
   font-weight: bold;
+  font-size:xx-large;
 }
 
 .volume {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 img {
   width: 40px;
 }
 
-.color-backdrop {
-  background: linear-gradient(45deg, var(--active-color) 20%, transparent 100%) no-repeat;
-  animation: colorChange 10s alternate infinite;
+input {
+  height: 30px;
+  border-radius: 20px;
 }
 
-@keyframes colorChange {
-  from {
-    filter: hue-rotate(0deg);
-  }
-	to {
-    filter: hue-rotate(360deg);
-  }
+.timer {
+  margin: 20px;
 }
 
+.userInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.guessButton {
+  margin: 10px;
+  width: 60px;
+}
+
+p {
+  margin: 10px;
+  font-size: large;
+}
