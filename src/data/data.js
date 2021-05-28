@@ -2,7 +2,6 @@
 export const categories = [
   {
     category: '50\'s',
-
     songs: [
       'Rudolph,+The+Red-nosed+Reindeer+Gene+Autry',
       'I+Can+Dream,+Can\'t+I+The+Andrew+Sisters',
@@ -26,7 +25,8 @@ export const categories = [
     ]
   },
 
-  { category: '60\'s',
+  {
+    category: '60\'s',
     songs: [
       'The+Chipmunk+Song+The+Chipmunks+with+David+Seville',
       'Venus+Frankie+Avalon',
@@ -67,7 +67,8 @@ export const categories = [
       'Happy+Together+The+Turtles'
     ]
   },
-  { category: '70\'s',
+  {
+    category: '70\'s',
     songs: [
       'Raindrops+Keep+Fallin\'+On+My+Head+B.J.+Thomas',
       'I+Want+You+Back+Jackson+5',
@@ -92,7 +93,6 @@ export const categories = [
       'Love+Train+The+O\'Jays',
       'The+Joker+Steve+Miller+Band',
       'Hooked+on+a+Feeling+Blue+Swede',
-      'Band+on+the+Run+Paul+McCartney+and+Wings',
       'Nothing+from+Nothing+Billy+Preston',
       'Cat\'s+in+the+Cradle+Harry+Chapin',
       'Fire+Ohio+Players',
@@ -113,7 +113,8 @@ export const categories = [
       'Play+That+Funky+Music+Elton+John+Kiki+Dee'
     ]
   },
-  { category: '80\'s',
+  {
+    category: '80\'s',
     songs: [
       'Rock+with+You+Michael+Jackson',
       'Crazy+Little+Thing+Called+Love+Queen',
@@ -150,7 +151,8 @@ export const categories = [
       'Faith+George+Michael'
     ]
   },
-  { category: '90\'s',
+  {
+    category: '90\'s',
     songs: [
       'Vogue+Madonna',
       'Ice+Ice+Baby+Vanilla+Ice',
@@ -176,7 +178,8 @@ export const categories = [
       'The+Sign+Ace+of+Base'
     ]
   },
-  { category: '2000\'s',
+  {
+    category: '2000\'s',
     songs: [
       'Try+Again+Aaliyah',
       'It\'s+Gonna+Be+Me+\'N+Sync',
@@ -198,7 +201,8 @@ export const categories = [
       'Hips+Don\'t+Lie+Shakira+featuring+Wyclef+Jean'
     ]
   },
-  { category: '2010\'s',
+  {
+    category: '2010\'s',
     songs: [
       'Rolling+in+the+Deep+Adele',
       'Shake+It+Off+Taylor+Swift',
@@ -217,16 +221,17 @@ export const categories = [
       'Somebody+That+I+used+to+Know+Gotye+featuring+Kimbra',
       'Call+Me+Maybe+Carly+Rae+Jepson',
       'Rude+Boy+Rhianna'
-    ] 
+    ]
   },
-  { category: 'Mystery',
+  {
+    category: 'Mystery',
     songs: [
       'Stylo+Gorillaz',
       '3+on+E+(Feat.+Antwaun+Stanley)+Vulfpeck',
       'Frontier+Psychiatrist+The+Avalanches',
       'Gossip+Folks+Missy+Elliott',
       'Beetlejuice+Main+Titles+Danny+Elfman',
-      'Twisted+Nerve+The+City+of+Prague+Philharmonic+Orchestra',
+      'Twisted+Nerve+Bernard+Herrmann',
       'Hedwig\'s+Theme+John+Williams',
       'Zero+to+Hero+Hercules',
       'The+Uruk-Hai+The+Lord+of+the+Rings:+The+Two+Towers',
@@ -235,8 +240,6 @@ export const categories = [
       'Dani+Buddy+Greco',
       'Push+It+Salt-N-Pepa',
       'Pokemon+Theme+Jason+Paige',
-      'Go+Go+Power+Rangers+Power+Rangers+Orchestra',
-      'Star+Trek+Theme+The+Columbia+Studio+Orchestra',
       'Rainbow+Connection+Kermit',
       'Pure+Imagination+Gene+Wilder'
 

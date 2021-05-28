@@ -1,23 +1,105 @@
 .Auth {
-  width: 400px;
-  margin: auto;
-  border: 1px black solid;
-  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Auth label span {
+.Auth .form {
+  width: 800px;
+  margin: 200px;
+  border: 3px pink solid;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Auth div {
+  color: white;
   display: block;
-  font-size: .8rem;
+  font-size: x-large;
+  text-align: center;
 }
 
 .Auth p {
   margin: 10px 0;
 }
 
+.Auth input{
+  width: 200px;
+  margin: 5px;
+}
+
 .Auth button.switch {
   border: 0;
   background: unset;
   text-decoration: underline;
-  color: blue;
+  color: white;
   cursor: pointer;
+}
+
+.Auth fieldset{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.Auth .Avatar input {
+  display: none;
+}
+
+.Auth input:checked + img {
+  filter: drop-shadow(5px 5px 5px hsl(315, 55%, 65%));
+}
+
+.Auth .Avatar img {
+  width: 150px;
+  height: 150px;
+  border: 3px solid pink;
+  border-radius: 10px;
+  margin: 5px; 
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.Auth .Avatar img:hover {
+  transform: scale(1.5);
+}
+
+.Auth button {
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.Auth .switch {
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}
+
+.Auth .glow {
+  font-size: 2rem;
+  font-family: battlelines;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e6007396, 0 0 40px #e6007396, 0 0 50px #e6007396
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6
+  }
+}
+
+.Auth .error {
+  font-size: smaller;
+  color: pink
 }

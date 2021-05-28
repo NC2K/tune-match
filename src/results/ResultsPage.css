@@ -1,0 +1,21 @@
+.ResultsPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Titan One", cursive;
+}
+
+.ResultsPage .resultsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.ResultsPage h1 {
+  text-align: center;
+  color: pink;
+  font-size: 50px;
+  margin: 20px;
+}

@@ -1,4 +1,78 @@
-.InitPage{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+.Categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Titan One", cursive;
+}
+
+.Categories h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:pink;
+  font-size: 50px;
+  margin: 30px;
+}
+
+.Categories p {
+  color: pink;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  text-align: center;
+  
+}
+
+.Categories .catWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 250px;
+}
+
+.Categories .categoryForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Categories .categoryList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Categories .category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid pink;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  color:pink;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.Categories input {
+  display: none;
+}
+
+.Categories input:checked + div {
+  background-color: pink;
+  color: black;
+}
+
+.Categories button {
+  padding: 10px;
+  
+  background-color: pink;
+  color: black;
+  border-radius: 10px;
+  font-size: x-large;
+  margin: 30px;
+  cursor: pointer;
 }

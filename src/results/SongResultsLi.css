@@ -1,0 +1,43 @@
+.SongResultsLi {
+  display: grid;
+  grid-template-columns: 1fr 0.25fr auto;
+  align-content: center;
+  width: 700px;
+  margin: 5px;
+  border: 3px pink solid;
+  border-radius: 50px;
+  padding: 20px;
+}
+
+.SongResultsLi .songInfo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  color:pink;
+  font-size: large;
+}
+
+.SongResultsLi h3 {
+font-size: x-large;
+}
+
+.SongResultsLi h5 {
+font-size: large;
+color: darkturquoise;
+}
+
+.SongResultsLi img {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.SongResultsLi audio {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+

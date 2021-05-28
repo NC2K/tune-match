@@ -1,9 +1,29 @@
-.Header {
-  padding: 20px;
-  border-bottom: 1px solid lightgray;
+@font-face {
+  font-family: battlelines;
+  src: url('../fonts/battlelines.ttf') format('ttf');
 }
 
-h1 {
-  font-size: 2rem;
-  font-weight: bold;
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+  background-color: rgba(19, 19, 19, 0.876);;
+}
+
+.Header h1 {
+  font-family: "Titan One", cursive;
+  color: white;
+  font-size: 30px;
+}
+
+.Header nav * {
+  margin: 10px;
+  font-family: "Titan One", cursive;
+}
+
+.Header a {
+  color: pink;
+  font-size: x-large;
 }

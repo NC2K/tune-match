@@ -1,0 +1,43 @@
+.LeaderboardPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.LeaderboardPage .scoresWrapper {
+  width: 500px;
+  margin: 30px;
+}
+
+.LeaderboardPage p{
+  text-align: center;
+  color: pink;
+  font-size: 50px;
+  margin: 20px;
+  font-family: "Titan One", cursive;
+}
+
+.LeaderboardPage .resultsHeader {
+  padding: 5px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 3px solid pink;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: black;
+  background-color: pink;
+  font-weight: bold;
+}
+
+.LeaderboardPage .resultsWrapper {
+  padding: 5px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+

@@ -6,11 +6,14 @@ import {
   Redirect
 } from 'react-router-dom';
 
+import AboutUs from '../about/AboutUs';
 import Auth from '../auth/Auth';
 import Categories from '../game/Categories';
 import Footer from './Footer';
 import Header from './Header';
 import Home from '../home/Home';
+import LeaderboardPage from '../leaderboard/LeaderboardPage';
+import ResultsPage from '../results/ResultsPage';
 import SongPage from '../game/SongPage';
 
 import './App.css';
@@ -19,8 +22,7 @@ class App extends Component {
   state = {
     token: window.localStorage.getItem('TOKEN'),
     userId: window.localStorage.getItem('USER_ID'),
-    userName: window.localStorage.getItem('USER_NAME')
- 
+    userName: window.localStorage.getItem('USER_NAME'),
   }
 
   handleUser = user => {
@@ -30,11 +32,8 @@ class App extends Component {
     this.setState({ token: user.token });
   }
 
-
-
   render() {
-    // const { token } = this.state; (use with favorites later)
-  
+
     return (
       <div className="App">
         <Router>
@@ -44,7 +43,8 @@ class App extends Component {
             <Switch>
               <Route path="/" exact={true}
                 render={routerProps => (
-                  <Home {...routerProps} />
+                  <Home {...routerProps}
+                    onUser={this.handleUser} />
                 )}
               />
 
@@ -57,12 +57,27 @@ class App extends Component {
 
               <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <Categories {...routerProps}/>)}
+                  <Categories uName={this.state.userName} {...routerProps} />)}
               />
 
               <Route path="/songpage" exact={true}
                 render={routerProps => (
-                  <SongPage {...routerProps}/>)}
+                  <SongPage {...routerProps} />)}
+              />
+
+              <Route path="/resultspage" exact={true}
+                render={routerProps => (
+                  <ResultsPage {...routerProps} />)}
+              />
+
+              <Route path="/leaderboard" exact={true}
+                render={routerProps => (
+                  <LeaderboardPage {...routerProps} />)}
+              />
+
+              <Route path="/aboutus" exact={true}
+                render={routerProps => (
+                  <AboutUs {...routerProps} />)}
               />
 
               <Route path="/resources/:id"

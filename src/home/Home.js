@@ -3,13 +3,43 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 export default class Home extends Component {
+  state = {
+    isLoggedIn: false
+  }
+
+
+  componentDidMount() {
+    let isLoggedIn = window.localStorage.getItem('USER_ID') ? true : false;
+    this.setState({ isLoggedIn });
+  }
+
 
   render() {
-    return (
-      <div className="Home">
-        <h2>Can you name that song?</h2>
+    let { isLoggedIn } = this.state;
 
-        <Link to='/auth'>Sign in to Play</Link>
+    let display = '';
+
+    if (isLoggedIn) {
+      display = <Link to='/categories'>Play the game!</Link>;
+    } else {
+      display = <Link to='/auth'>Sign in to Play</Link>;
+    }
+    return (
+
+      <div className="Home">
+        <div className="homeWrapper">
+          <span>T</span>
+          <span>U</span>
+          <span>N</span>
+          <span>E</span>
+          <span>M</span>
+          <span>A</span>
+          <span>T</span>
+          <span>C</span>
+          <span>H</span>
+        </div>
+
+        <p>{display}</p>
       </div>
     );
   }

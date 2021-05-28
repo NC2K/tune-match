@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { categories } from '../data/data.js';
 import { makeQueryList } from '../utils/utils';
+import { postScores } from '../utils/server-utils';
 import './Categories.css';
 
 export default class InitPage extends Component {
@@ -8,7 +9,8 @@ export default class InitPage extends Component {
     catCount: 0,
     endButton: false,
     cat: '',
-    songs: []
+    songs: [],
+    gameId: undefined
   }
 
   handleSwitch = () => {
@@ -21,25 +23,37 @@ export default class InitPage extends Component {
     this.setState({ cat: e.target.value });
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     try {
       e.preventDefault();
-      const { cat, songs } = this.state;
+      const { cat } = this.state;
       const { history } = this.props;
       this.setState.catCount++;
 
       const catQueryList = makeQueryList(categories[cat].songs);
 
-      const stringyCat = JSON.stringify(catQueryList);
-      localStorage.setItem('SONGS', stringyCat);
+      const stringyQueryList = JSON.stringify(catQueryList);
+      localStorage.setItem('SONGS', stringyQueryList);
 
+      const stringyCat = JSON.stringify(categories[cat].category);
+      localStorage.setItem('CATEGORY', stringyCat);
 
-      console.log('QUERY LIST:', songs);
+      const score = {
+        cat1: categories[cat].category,
+        total: 0,
+        uName: this.props.uName
+      };
 
+      localStorage.removeItem('SONGSDATA');
 
+      const gameInstance = await postScores(score);
+
+      this.setState({ gameId: gameInstance.id });
+      const stringyGameId = JSON.stringify(this.state.gameId);
+      localStorage.setItem('GAMEID', stringyGameId);
       history.push('/songpage');
-
     }
+
     catch (err) {
       this.setState({ error: err.error });
     }
@@ -49,26 +63,28 @@ export default class InitPage extends Component {
     const { endButton } = this.state;
 
     return (
-      <div>
-        Choose A Category!
-        <form className='selection-form' onSubmit={this.handleSubmit}>
-          <ul className='CategoryList'>
-            {categories.map((category, i) => (
-              <li>
-                <label>
-                  {category.category}
-                  <input type='radio' name='category' value={i} onChange={this.onValueChange} />
-                </label>
-              </li>
-            ))}
-          </ul>
-          <p>
+      <div className='Categories'>
+        <div className="catWrapper">
+          <h2>Choose A Category!</h2>
+          <p>Think you have an ear for music?  Answer 10 questions based on the tunes provided. <br/> Name the tune within 15 seconds and walk away with 100 points.  Be careful not to run out of time!</p>
+          <form className='categoryForm' onSubmit={this.handleSubmit}>
+            <ul className='categoryList'>
+              {categories.map((category, i) => (
+                <li>
+                  <label>
+                    <input type='radio' name='category' value={i} onChange={this.onValueChange} />
+                    <div className="category">
+                      {category.category}
+                    </div>
+                  </label>
+                </li>
+              ))}
+            </ul>
             <button>Start</button>
-          </p>
-          {endButton && <p>
-            <button type='button'>End Game</button>
-          </p>}
-        </form>
+            {endButton &&
+            <button type='button'>End Game</button>}
+          </form>
+        </div>
       </div>
     );
   }

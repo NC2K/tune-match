@@ -4,7 +4,9 @@
   grid-template-rows: auto 1fr auto;
 }
 
-main {
-  background: #FAF0EA;
+.App main {
+  color: black;
+  background-color: rgba(7, 7, 7, 0.924);
+  /* background-image: url('./../brickwall.jpg'); */
 }
 
