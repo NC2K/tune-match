@@ -1,21 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
 
-main {
-  display: block;
-  
-}
 
 .Home {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 200px;
 }
 
 
 .Home h2 {
   font-size: 6rem;
   margin: 2rem 0;
+  display: flex;
+	 
 }
 
 a {
@@ -24,6 +23,9 @@ a {
   font-family: "Titan One", cursive;
 }
 
+p {
+	margin-top: 250px;
+}
 
 /* imported from https://codepen.io/faria09/pen/vYGZVgW */
 @import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
