@@ -112,7 +112,7 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong, counter, timeRemaining, volume, score, feedback} = this.state;
+    const { fetchedSong, counter, timeRemaining, volume, score, feedback } = this.state;
 
     return (
       <div className="SongPage">
@@ -143,7 +143,7 @@ export default class SongPage extends Component {
                 </audio>
                 }
 
-                  <button onClick={this.handlePlay}>Start Song!</button>
+                <button onClick={this.handlePlay}>Start Song!</button>
           
 
                 <div className="volume">
