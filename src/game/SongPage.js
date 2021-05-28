@@ -154,7 +154,7 @@ export default class SongPage extends Component {
               {/* We need to listen for song onended.*/}
               {/* On onended, load the next song.*/}
               <form className="userInput" onSubmit={this.handleSubmit} id="form">
-                <input onChange={this.handleChange} />
+                <input onChange={this.handleChange} placeholder="Name the Tune" />
                 <button className="guessButton">Guess</button>
               </form>
               <p className="timer">Time Remaining: {timeRemaining === -1 || timeRemaining}</p>

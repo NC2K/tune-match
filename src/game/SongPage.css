@@ -7,25 +7,27 @@
   src: url('../fonts/CopaseticNF.ttf') format('ttf');
 }
 
+
+.SongPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Titan One", cursive;
+}
+
 .SongPage .gameWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 150px;
+  margin: 100px;
 }
 
 .SongPage .stereo-base {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
   justify-content: center;
-  align-items: center;
-}
-
-.SongPage {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -128,6 +130,8 @@
 .SongPage input {
   height: 30px;
   border-radius: 20px;
+  text-align: center;
+  font-size: x-large;
 }
 
 .SongPage .userInput {

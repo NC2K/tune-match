@@ -8,8 +8,8 @@
   text-align: center;
   color: pink;
   font-size: 50px;
-  margin: 20px;
-  font-weight: bold;
+  margin-top: 50px;
+  font-family: "Titan One", cursive;
 }
 
 .AboutUs .bios {
@@ -34,7 +34,7 @@
   align-items: center;
 }
 
-.AboutUs .bios .profile {
+.AboutUs .profile {
   margin: 10px;
   background-color: white;
   color: black;

@@ -20,7 +20,12 @@
 }
 
 .SongResultsLi h3 {
-  font-weight: bold;
+font-size: x-large;
+}
+
+.SongResultsLi h5 {
+font-size: large;
+color: darkturquoise;
 }
 
 .SongResultsLi img {
