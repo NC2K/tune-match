@@ -25,8 +25,19 @@ export default class Home extends Component {
       display = <Link to='/auth'>Sign in to Play</Link>;
     }
     return (
+
       <div className="Home">
-        <h2 className="glow">Tune Match</h2>
+        <div className="wrapper">
+          <span>T</span>
+          <span>U</span>
+          <span>N</span>
+          <span>E</span>
+          <span>M</span>
+          <span>A</span>
+          <span>T</span>
+          <span>C</span>
+          <span>H</span>
+        </div>
 
         <p>{display}</p>
       </div>
