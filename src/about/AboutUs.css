@@ -1,14 +1,10 @@
-main {
-  padding: 20px;
-}
-
 .AboutUs {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.bios {
+.AboutUs .bios {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -17,7 +13,7 @@ main {
   border-radius: 5px;
 }
 
-.avatar {
+.AboutUs .avatar {
   padding: 5%;
   object-fit: cover;
   width: 150px;
@@ -25,13 +21,13 @@ main {
   border-radius: 30px;
 }
 
-.bio-media {
+.AboutUs .bio-media {
   
   display: flex;
   flex-direction: column;
 }
 
-.profile {
+.AboutUs .profile {
   margin: 20px;
   background-color: white;
   color: black;
@@ -39,14 +35,14 @@ main {
   border-radius: 30px;
 }
 
-.links {
+.AboutUs .links {
   margin: 10px;
   display: flex;
   width: 75px;
   height: 75px;
 }
 
-.blurb {
+.AboutUs .blurb {
   width: 500px;
   margin: 10px;
   font-size: larger;
@@ -59,7 +55,7 @@ main {
   align-items: center;
 }
 
-.blurb h2 {
+.AboutUs .blurb h2 {
   margin: 10px;
   font-weight: bolder;
   font-size: 25px;
