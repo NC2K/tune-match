@@ -1,56 +1,63 @@
-.CategoryPage{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-} 
-
-.CategoryPage .selection-form {
-  height: 100px;
-  width: 100px;
+.Categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.CategoryPage .CategoryList input {
+.Categories p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:pink;
+  font-size: 50px;
+  margin: 30px;
+}
+
+.Categories .catWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 300px;
+}
+
+.Categories .categoryForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Categories .categoryList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Categories .category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid pink;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  color:pink;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.Categories input {
   display: none;
 }
 
-
-
-
-
-.CategoryPage .CategoryList li {
-  margin: 10px;
+.Categories input:checked + div {
+  background-color: pink;
+  color: black;
 }
 
-.CategoryPage .radio-tile-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.CategoryPage .radio-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  border: 2px solid plum;
-  border-radius: 5px;
-  padding: 1rem;
-  transition: transform 300ms ease;
+.Categories button {
+  font-size: x-large;
+  margin: 30px;
   cursor: pointer;
 }
-
-.CategoryPage .radio-tile-label {
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  color: pink;
-  background-color: black;
-}
-
-  
-  
-  
