@@ -116,7 +116,7 @@ export default class SongPage extends Component {
 
     return (
       <div className="SongPage">
-        <img className="stereo-handle" src="stereo-handle.png"/>
+        <img className="stereo-handle" src="stereo-handle.png" alt="stereo handle"/>
         <div className="wrapper color-backdrop">
           <section className="Score">
             <div>
