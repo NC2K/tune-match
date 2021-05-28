@@ -20,7 +20,7 @@ export default class SongPage extends Component {
     interval: 0,
     timeRemaining: -1,
   }
-
+  //grabs song queries from local storage for use with api
   async componentDidMount() {
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
     this.setState({ songs: parsedSongs });
@@ -30,13 +30,21 @@ export default class SongPage extends Component {
 
     this.player.volume = 0.2;
   }
-
+  //Timer Function
   startTimer() {
     const { allowedTime } = this.state;
+
+    //set interval creates the timer
     const interval = setInterval(() => {
+
+      //takes in current date/time and subtracts start time
       const elapsedTime = new Date() - this.state.startTime;
+      //converts allowed time into milliseconds, then subtracts elapsed time
       const timeRemaining = Math.round(((allowedTime * 1000) - elapsedTime) / 1000);
+
+      //places time in state
       this.setState({ timeRemaining }, () => {
+      //timer end logic
         if (timeRemaining < 0) {
           this.stopTimer();
           alert('Out of Time!');
@@ -45,6 +53,7 @@ export default class SongPage extends Component {
       });
 
     }, 1000);
+    //places time into state
     this.setState({ interval, startTime: new Date(), timeRemaining: allowedTime });
   }
 
@@ -52,7 +61,7 @@ export default class SongPage extends Component {
     clearInterval(this.state.interval);
     this.setState({ interval: 0, startTime: null, timeRemaining: -1 });
   }
-
+  //starts song and timer upon button click
   handlePlay = () => {
     this.player.play();
     this.startTimer();
@@ -64,7 +73,9 @@ export default class SongPage extends Component {
     const form = document.getElementById('form');
     
     if (counter < 9) {
+      //increments question number, 
       this.state.counter++;
+      //grabs song from api, pushes to local storage
       const nextSong = await getSong(this.state.songs, this.state.counter);
       addSongToStorage(nextSong);
       
@@ -77,13 +88,16 @@ export default class SongPage extends Component {
       history.push('/resultspage');
     }
     this.setState({});
+    //clears input field
     form.reset();
   };
 
+  //stores user input in state
   handleChange = ({ target }) => {
     this.setState({ userInput: target.value });
   }
 
+  //question guessing logic
   handleSubmit = e => {
     e.preventDefault();
     const { userInput, fetchedSong, score } = this.state;
@@ -96,7 +110,7 @@ export default class SongPage extends Component {
       putScores(points);
       
       this.handleClick();
-      console.log('look here', this.form);
+    
     
     } else {
       this.setState({ feedback: 'Incorrect!' });

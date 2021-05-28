@@ -28,26 +28,34 @@ export default class InitPage extends Component {
       e.preventDefault();
       const { cat } = this.state;
       const { history } = this.props;
+
+      //if additional rounds are included, cat count would allow for a maximum of rounds
       this.setState.catCount++;
 
+      //grab list of search queries based on category selected
       const catQueryList = makeQueryList(categories[cat].songs);
 
+      //push song information into local storage
       const stringyQueryList = JSON.stringify(catQueryList);
       localStorage.setItem('SONGS', stringyQueryList);
 
       const stringyCat = JSON.stringify(categories[cat].category);
       localStorage.setItem('CATEGORY', stringyCat);
 
+      //intializes data to be pushed to score database
       const score = {
         cat1: categories[cat].category,
         total: 0,
         uName: this.props.uName
       };
 
+      //if user replays game, clears song data from local storage
       localStorage.removeItem('SONGSDATA');
 
+      //posts score to leaderboard based on game instance
       const gameInstance = await postScores(score);
 
+      //pushes game id to local storage
       this.setState({ gameId: gameInstance.id });
       const stringyGameId = JSON.stringify(this.state.gameId);
       localStorage.setItem('GAMEID', stringyGameId);
@@ -66,7 +74,7 @@ export default class InitPage extends Component {
       <div className='Categories'>
         <div className="catWrapper">
           <h2>Choose A Category!</h2>
-          <p>Think you have an ear for music?  Answer 10 questions based on the tunes provided. <br/> Name the tune within 15 seconds and walk away with 100 points.  Be careful not to run out of time!</p>
+          <p>Think you have an ear for music?  Answer 10 questions based on the tunes provided. <br /> Name the tune within 15 seconds and walk away with 100 points.  Be careful not to run out of time!</p>
           <form className='categoryForm' onSubmit={this.handleSubmit}>
             <ul className='categoryList'>
               {categories.map((category, i) => (
@@ -82,7 +90,7 @@ export default class InitPage extends Component {
             </ul>
             <button>Start</button>
             {endButton &&
-            <button type='button'>End Game</button>}
+              <button type='button'>End Game</button>}
           </form>
         </div>
       </div>

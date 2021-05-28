@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Header />
+          <Header isLoggedIn={!!this.state.token} />
           <main>
 
             <Switch>
@@ -80,11 +80,6 @@ class App extends Component {
                   <AboutUs {...routerProps} />)}
               />
 
-              <Route path="/resources/:id"
-                render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
-                )}
-              />
 
               <Redirect to="/" />
 
