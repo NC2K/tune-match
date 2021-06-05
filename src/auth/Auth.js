@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import { logIn, signUp } from '../utils/server-utils.js';
 import './Auth.css';
 
+const AVATARS = [
+  { image: '/wizard.png', name: 'Wizard' }, 
+  { image: '/dog.png', name: 'Doggo' }, 
+  { image: '/beans.png', name: 'Beans' }, 
+  { image: '/robot.png', name: 'Robot' }, 
+  { image: '/boombox.png', name: 'Boombox' }, 
+  { image: '/monke.png', name: 'Ape' }, 
+  { image: '/laptop.png', name: 'Laptop' }, 
+]
+
 export default class Auth extends Component {
   state = {
     name: '',
@@ -43,6 +53,8 @@ export default class Auth extends Component {
   render() {
     const { name, email, avatar, password, isSignUp, error } = this.state;
 
+    
+
     return (
       <div className="Auth">
         <form className="form glow" onSubmit={this.handleSubmit}>
@@ -63,34 +75,12 @@ export default class Auth extends Component {
           {isSignUp && <p>
             <div>Select an Avatar:</div>
             <fieldset className='Avatar'> {/*Set avatar up like radio button or drop down menu */}
-              <label>
-                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-                <img src='/wizard.png' alt='Wizard'/>
-              </label>
-              <label>
-                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-                <img src='/dog.png' alt='Doggo'/>
-              </label>
-              <label>
-                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-                <img src='/beans.png' alt='Beans'/>
-              </label>
-              <label>
-                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-                <img src='/robot.png' alt='Robot'/>
-              </label>
-              <label>
-                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-                <img src='/boombox.png' alt='Boombox'/>
-              </label>
-              <label>
-                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-                <img src='/monke.png' alt='Ape'/>
-              </label>
-              <label>
-                <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
-                <img src='/laptop.png' alt='Laptop'/>
-              </label>
+              {AVATARS.map(({ image, name }) => (
+                <label>
+                  <input type='radio' name='avatar' value={avatar} onChange={this.onValueChange}/>
+                  <img src={image} alt={name}/>
+                </label>
+              ))}
             </fieldset>
           </p>}
 

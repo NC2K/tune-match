@@ -8,21 +8,14 @@ export default class AboutUs extends Component {
       <div className="AboutUs">
         <h1>About Us</h1>
         <div className="bios">
-          
-          <div className="profile">
-            
-            <div className="bio-media">
-              <img className="avatar" src="./../kalan-avatar.jpg" alt="kalan"/>
-            </div>
-            <div className="blurb">
-              <h2>Kalan Prudhomme</h2>
-              <p>A tasteful jazz pianist/music sommalier. He likes gorillas, and drawing gorillas.</p>
-              <div className="links">
-                <a href="https://github.com/prudhomk" target="_blank" rel="noreferrer noopener"><img src="./../github-logo.png" alt="github"/></a>
-                <a href="https://www.linkedin.com/in/kalanprudhomme/" target="_blank" rel="noreferrer noopener"><img src="./../linkedin-logo.png" alt="linkedin"/></a>
-              </div>
-            </div>
-          </div>
+
+          {/* use a component to encapsulated repeated jsx! (see below) */}
+          <Profile name="Kalan Prudhomme"
+            image="./../kalan-avatar.jpg"
+            byline="A tasteful jazz pianist/music sommalier. He likes gorillas, and drawing gorillas."
+            github="prudhomk"
+            linkedIn="kalanprudhomme"/>
+         
             
         
           <div className="profile">
@@ -69,6 +62,32 @@ export default class AboutUs extends Component {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
+}
+
+// Use a component!
+
+class Profile extends Component {
+  render() {
+    const { image, name, byline, github, linkedIn } = this.props;
+    return (
+      <div className="profile">
+            
+        <div className="bio-media">
+          <img className="avatar" src={image} alt={name}/>
+        </div>
+
+        <div className="blurb">
+          <h2>{name}</h2>
+          <p>{byline}</p>
+          <div className="links">
+            <a href={`https://github.com/${github}`} target="_blank" rel="noreferrer noopener"><img src="./../github-logo.png" alt="github"/></a>
+            <a href={`https://www.linkedin.com/in/${linedIn}/`} target="_blank" rel="noreferrer noopener"><img src="./../linkedin-logo.png" alt="linkedin"/></a>
+          </div>
+        </div>
+
       </div>
     );
   }

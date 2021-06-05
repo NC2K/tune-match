@@ -22,12 +22,14 @@ export async function signUp(user) {
   return response.body;
 }
 
-export async function getSong(songArr, counter) {
+// pass in songArr[counter], this function doesn't need
+// to know about the whole songArr, or what index you are on
+export async function getSong(songSearch) {
   
   const playlist = await request
     .get('/api/categories/:search')
     .set('Authorization', window.localStorage.getItem('TOKEN'))
-    .query({ search: songArr[counter] });
+    .query({ search: songSearch });
 
   return playlist.body;
 }
