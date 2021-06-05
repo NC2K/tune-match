@@ -25,8 +25,11 @@ export default class SongPage extends Component {
     const parsedSongs = JSON.parse(localStorage.getItem('SONGS'));
     this.setState({ songs: parsedSongs });
 
-    const currentSong = await getSong(this.state.songs, this.state.counter);
-    this.setState({ fetchedSong: currentSong }, () => this.handleClick());
+    // isn't counter going to be -1 ????
+    // doesn't another song get fetched in handleClick???
+    // const currentSong = await getSong(this.state.songs[this.state.counter]);
+    // this.setState({ fetchedSong: currentSong }, () => this.handleClick());
+    this.handleClick();
 
     this.player.volume = 0.2;
   }
@@ -70,13 +73,20 @@ export default class SongPage extends Component {
   handleClick = async () => {
     const { counter } = this.state;
     const { history } = this.props;
-    const form = document.getElementById('form');
+
+    // no, don't do this. you can't make those kind of assumptions.
+    // what if another form gets added to the page?
+    // also, you know what form you want, so why go fishing in the whole document for it?
+    // You could do the same thing as audio with a ref={node => this.form = form}
+    // but better choice is to manage the state
+    // const form = document.getElementById('form');
     
     if (counter < 9) {
       //increments question number, 
       this.state.counter++;
       //grabs song from api, pushes to local storage
-      const nextSong = await getSong(this.state.songs, this.state.counter);
+      
+      const nextSong = await getSong(this.state.songs[this.state.counter]);
       addSongToStorage(nextSong);
       
       this.stopTimer();
@@ -115,8 +125,13 @@ export default class SongPage extends Component {
     } else {
       this.setState({ feedback: 'Incorrect!' });
     }
-    this.setState({});
-    form.reset();
+    // this doesn't do anything as there are no keys specified,
+    // you need to reset explicitly
+    this.setState({
+      userInput: '',
+      // whatever else needs to be reset
+    });
+    // form.reset();
   }
 
   handleVolume = ({ target }) => {
@@ -126,7 +141,7 @@ export default class SongPage extends Component {
 
   render() {
 
-    const { fetchedSong, counter, timeRemaining, volume, score, feedback } = this.state;
+    const { userInput, fetchedSong, counter, timeRemaining, volume, score, feedback } = this.state;
 
     return (
       <div className="SongPage">
@@ -168,11 +183,13 @@ export default class SongPage extends Component {
               {/* We need to listen for song onended.*/}
               {/* On onended, load the next song.*/}
               <form className="userInput" onSubmit={this.handleSubmit} id="form">
-                <input onChange={this.handleChange} placeholder="Name the Tune" />
+                <input value={userInput} onChange={this.handleChange} placeholder="Name the Tune" />
                 <button className="guessButton">Guess</button>
               </form>
+
               <p className="timer">Time Remaining: {timeRemaining === -1 || timeRemaining}</p>
               <button onClick={this.handleClick}>Skip It</button>
+            
             </section>
 
             <section className="RightOrWrong">

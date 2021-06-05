@@ -57,27 +57,32 @@ class App extends Component {
 
               <Route path="/categories" exact={true}
                 render={routerProps => (
-                  <Categories uName={this.state.userName} {...routerProps} />)}
+                  <Categories uName={this.state.userName} {...routerProps} />
+                )}
               />
 
-              <Route path="/songpage" exact={true}
+              <Route path="/song" exact={true}
                 render={routerProps => (
-                  <SongPage {...routerProps} />)}
+                  <SongPage {...routerProps} />
+                )}
               />
 
-              <Route path="/resultspage" exact={true}
+              <Route path="/results" exact={true}
                 render={routerProps => (
-                  <ResultsPage {...routerProps} />)}
+                  <ResultsPage {...routerProps} />
+                )}
               />
 
-              <Route path="/leaderboard" exact={true}
+              <Route path="/leader-board" exact={true}
                 render={routerProps => (
-                  <LeaderboardPage {...routerProps} />)}
+                  <LeaderboardPage {...routerProps} />
+                )}
               />
 
-              <Route path="/aboutus" exact={true}
+              <Route path="/about-us" exact={true}
                 render={routerProps => (
-                  <AboutUs {...routerProps} />)}
+                  <AboutUs {...routerProps} />
+                )}
               />
 
 

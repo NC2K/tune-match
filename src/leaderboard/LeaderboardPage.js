@@ -20,12 +20,17 @@ export default class LeaderboardPage extends Component {
     return (
       <div className="LeaderboardPage">
         <div className="scoresWrapper">
+          
           <p>LeaderBoard</p>
+          
+          {/* This looks like an actual <table> */}
+            
           <div className="resultsHeader">
             <div>Category:</div>
             <div>Player:</div>
             <div>Score:</div>
           </div>
+          
           {scores.map(item => (
             <div className="resultsWrapper">
               <div className="cat1">{item.cat1}</div>
@@ -33,6 +38,7 @@ export default class LeaderboardPage extends Component {
               <div className="total">{item.total}</div>
             </div>
           ))}
+
         </div>
       </div>
     );

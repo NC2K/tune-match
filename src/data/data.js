@@ -1,3 +1,4 @@
+// would have been better to see this as seed data in your db
 
 export const categories = [
   {
